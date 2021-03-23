@@ -85,7 +85,8 @@ export default {
       this.refreshInputText();
     },
     endQuestion(){
-      console.log(this.userInfo);
+      this.$store.commit("setUserInfo", this.userInfo)
+      this.$router.push("/home")
     }
   }
 }
