@@ -1,0 +1,17 @@
+{
+  "homeType" : {
+    "value" : "None"
+  },
+  "postalCode" : {
+    "value" : "00000",
+    "valid" : false
+  },
+  "homeArea" : {
+    "value" : 0,
+    "valid" : false
+  },
+  "elecConsumptionTotal" : {
+    "value" : 0,
+    "valid" : false
+  }
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "question" : "Vivez vous dans un appartement ou dans une maison ?",
+    "type": "buttonChoice",
+    "choices": [
+      {
+        "text": "Maison",
+        "img": "/icon.png"
+      },
+      {
+        "text": "Appartement",
+        "img": "/icon.png"
+      }
+    ]
+  },
+  {
+    "question" : "Quel est le code postal du logement ?",
+    "type": "inputText",
+    "rules": [{"name" : "Postal", "externalData" : "none"}]
+  },
+  {
+    "question" : "Quel est la surface habitable de votre logement ?",
+    "type": "inputText",
+    "rules": [{"name" : "Number", "externalData" : "none"}, {"name" : "Notnull", "externalData" : "none"}]
+  },
+  {
+    "question" : "Quel est votre consommation électrique annuelle ?",
+    "type": "inputText",
+    "rules": [{"name" : "Number", "externalData" : "none"}, {"name" : "Notnull", "externalData" : "none"}]
+  }
+]
