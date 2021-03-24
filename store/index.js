@@ -1,5 +1,8 @@
+import uinfo from 'assets/userInfo.json';
+
 export const state = () => ({
-  userInfo: null
+  //userInfo: null
+  userInfo : JSON.parse(JSON.stringify(uinfo)),
 })
 
 export const mutations = {

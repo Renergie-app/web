@@ -13,5 +13,74 @@
   "elecConsumptionTotal" : {
     "value" : 8000,
     "valid" : false
+  },
+  "solarModule" : {
+    "sellAll" : false,
+    "integration" : false,
+    "faces": [
+      {
+        "pose" : true,
+        "type" : 1,
+        "angle" : 30,
+        "area" : 0,
+        "orientation" : "Sud - Toiture"
+      },
+      {
+        "pose" : false,
+        "type" : 2,
+        "angle" : 90,
+        "area" : 0,
+        "orientation" : "Sud - Mur"
+      },
+      {
+        "pose" : false,
+        "type" : 3,
+        "angle" : 30,
+        "area" : 0,
+        "orientation" : "Sud Ouest - Toiture"
+      },
+      {
+        "pose" : false,
+        "type" : 4,
+        "angle" : 90,
+        "area" : 0,
+        "orientation" : "Sud Ouest - Mur"
+      },
+      {
+        "pose" : false,
+        "type" : 5,
+        "angle" : 30,
+        "area" : 0,
+        "orientation" : "Sud Est - Toiture"
+      },
+      {
+        "pose" : false,
+        "type" : 6,
+        "angle" : 90,
+        "area" : 0,
+        "orientation" : "Sud Est - Mur"
+      },
+      {
+        "pose" : false,
+        "type" :7,
+        "angle" : 30,
+        "area" : 0,
+        "orientation" : "Est - Toiture"
+      },
+      {
+        "pose" : false,
+        "type" :8,
+        "angle" : 90,
+        "area" : 0,
+        "orientation" : "Est - Mur"
+      },
+      {
+        "pose" : false,
+        "type" :9,
+        "angle" : 0,
+        "area" : 0,
+        "orientation" : "Plate"
+      }
+    ]
   }
 }

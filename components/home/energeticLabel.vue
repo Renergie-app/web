@@ -23,6 +23,7 @@
         <td><div style="width:45%; background-color: #DB0425; float: left;"> <p> G </p> </div> <p v-if="value>450"> <-- Actuellement </p> </td>
       </tr>
     </table>
+    <p> Note : votre étiquette est calculée à l'aide d'un calcul théorique de votre consommation kWhep.</p>
   </div>
 </template>
 

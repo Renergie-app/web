@@ -88,6 +88,10 @@ export default {
       this.$store.commit("setUserInfo", this.userInfo)
       this.$router.push("/home")
     }
+  },
+
+  mounted() {
+    if(this.$store.getters["getUserInfo"]!=null) this.userInfo = this.$store.getters["getUserInfo"]
   }
 }
 </script>
