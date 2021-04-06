@@ -2,13 +2,13 @@
   <div class="mb-1" style="background-color: #3a97a4; width: 800px; height:230px">
     <h1 class="pt-2 mb-2"> Façade {{ face.orientation }}</h1>
     <p class="mt-1"> Surface de panneaux : </p>
-    <input-text class="mb-5" :bus="bus" id="1" @change="changeArea"> </input-text>
+    <input-text class="mb-5" :bus="bus" id="1" @change="changeArea" :rules="[{name : 'Number', externalData : 'none'}]"> </input-text>
     <div v-if="face!==undefined && face.angle!==90 && face.angle!==0" class="mb-5">
       <p> Angle : </p>
-      <input-text :bus="bus" id="2" @change="changeAngle"> </input-text>
+      <input-text :bus="bus" id="2" @change="changeAngle" :rules="[{name : 'Number', externalData : 'none'}]"> </input-text>
     </div>
-    <p> Production éléctrique : NaN kWh</p>
-    <p> Gain en argent : NaN € / an</p>
+    <p> Production éléctrique : {{ face.prod }} kWh</p>
+    <p> Gain en argent : {{ face.gain }} € / an</p>
   </div>
 </template>
 
@@ -26,12 +26,14 @@ export default {
   methods:{
     changeArea(data){
       if(data.valid){
-        this.face.area = parseInt(data.text);
+        this.$store.commit("setFaceArea", {name : this.face.orientation, value : parseInt(data.text)})
+        this.$emit("change");
       }
     },
     changeAngle(data){
       if(data.valid){
-        this.face.angle = parseInt(data.text);
+        this.$store.commit("setFaceAngle", {name : this.face.orientation, value : parseInt(data.text)})
+        this.$emit("change");
       }
     },
   },

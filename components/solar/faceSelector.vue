@@ -58,7 +58,8 @@ export default {
     },
     onClick(index){
       if(this.solarfaces===undefined) return;
-      this.solarfaces.filter(face => face.type === index)[0].pose = !this.solarfaces.filter(face => face.type === index)[0].pose;
+      this.$store.commit("switchPoseSolarFace", index);
+      //this.solarfaces.filter(face => face.type === index)[0].pose = !this.solarfaces.filter(face => face.type === index)[0].pose;
     }
   }
 }

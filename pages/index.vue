@@ -91,7 +91,7 @@ export default {
   },
 
   mounted() {
-    if(this.$store.getters["getUserInfo"]!=null) this.userInfo = this.$store.getters["getUserInfo"]
+    if(this.$store.getters["getUserInfo"]!=null) this.userInfo = JSON.parse(JSON.stringify(this.$store.getters["getUserInfo"]));
   }
 }
 </script>

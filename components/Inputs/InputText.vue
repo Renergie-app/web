@@ -1,5 +1,5 @@
 <template>
-  <input type="text" @input="change" v-model="text" :style="{color: colorText}">
+  <input type="text" @change="change" v-model="text" :style="{color: colorText}">
 </template>
 
 <script>

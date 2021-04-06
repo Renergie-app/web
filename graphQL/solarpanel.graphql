@@ -1,0 +1,15 @@
+query Solarpanel($facades : [Facade!]!, $integrated : Boolean!, $zip : String!, $sellAll : Boolean!){
+  solarPanel(input: {facades: $facades, integratedInBuilding: $integrated, postalCode: $zip, sellEverything: $sellAll}){
+    perFacadeDetails {
+      amountOfSolarPanels
+      cost
+      powerOutputKWH
+      profit
+    }
+    stateFinancialHelp
+    totalAmountOfSolarPanels
+    totalCost
+    totalPowerOutputKWH
+    totalProfit
+  }
+}

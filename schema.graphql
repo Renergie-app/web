@@ -1,0 +1,47 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+}
+
+type FacadeResponse {
+  amountOfSolarPanels: Int!
+  cost: Float!
+  powerOutputKWH: Float!
+  profit: Float!
+}
+
+type Query {
+  solarPanel(input: SolarPanelInput): SolarPanelResponse
+}
+
+type SolarPanelResponse {
+  perFacadeDetails: [FacadeResponse!]!
+  stateFinancialHelp: Float!
+  totalAmountOfSolarPanels: Int!
+  totalCost: Float!
+  totalPowerOutputKWH: Float!
+  totalProfit: Float!
+}
+
+enum Orientation {
+  East
+  NONE
+  South
+  SouthEast
+  SouthWest
+  WEST
+}
+
+input Facade {
+  angle: Int
+  orientation: Orientation
+  surface: Float
+}
+
+input SolarPanelInput {
+  facades: [Facade!]!
+  integratedInBuilding: Boolean!
+  postalCode: String!
+  sellEverything: Boolean!
+}

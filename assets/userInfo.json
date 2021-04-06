@@ -17,69 +17,100 @@
   "solarModule" : {
     "sellAll" : false,
     "integration" : false,
+    "nbPanel" : 0,
+    "prod" : 0,
+    "statehelp" : 0,
+    "price" : 0,
     "faces": [
       {
         "pose" : true,
         "type" : 1,
         "angle" : 30,
         "area" : 0,
-        "orientation" : "Sud - Toiture"
+        "orientation" : "Sud - Toiture",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "South"
       },
       {
         "pose" : false,
         "type" : 2,
         "angle" : 90,
         "area" : 0,
-        "orientation" : "Sud - Mur"
+        "orientation" : "Sud - Mur",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "South"
       },
       {
         "pose" : false,
         "type" : 3,
         "angle" : 30,
         "area" : 0,
-        "orientation" : "Sud Ouest - Toiture"
+        "orientation" : "Sud Ouest - Toiture",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "SouthWest"
       },
       {
         "pose" : false,
         "type" : 4,
         "angle" : 90,
         "area" : 0,
-        "orientation" : "Sud Ouest - Mur"
+        "orientation" : "Sud Ouest - Mur",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "SouthWest"
       },
       {
         "pose" : false,
         "type" : 5,
         "angle" : 30,
         "area" : 0,
-        "orientation" : "Sud Est - Toiture"
+        "orientation" : "Sud Est - Toiture",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "SouthEast"
       },
       {
         "pose" : false,
         "type" : 6,
         "angle" : 90,
         "area" : 0,
-        "orientation" : "Sud Est - Mur"
+        "orientation" : "Sud Est - Mur",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "SouthEast"
       },
       {
         "pose" : false,
         "type" :7,
         "angle" : 30,
         "area" : 0,
-        "orientation" : "Est - Toiture"
+        "orientation" : "Est - Toiture",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "East"
       },
       {
         "pose" : false,
         "type" :8,
         "angle" : 90,
         "area" : 0,
-        "orientation" : "Est - Mur"
+        "orientation" : "Est - Mur",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "East"
       },
       {
         "pose" : false,
         "type" :9,
         "angle" : 0,
         "area" : 0,
-        "orientation" : "Plate"
+        "orientation" : "Plate",
+        "prod": 0,
+        "gain": 0,
+        "orientationRequest" : "NONE"
       }
     ]
   }
