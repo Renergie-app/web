@@ -1,13 +1,32 @@
 <template>
   <button
-    class="m-3 p-2 flex-col border-2 border-black"
+    class="flex-col p-5 font-semibold"
     @click="click"
-    :style="{ color: colorBtn }"
     :disabled="disabled"
   >
     {{ text }}
   </button>
 </template>
+
+<style scoped>
+button {
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid #e8e8e9;
+  transition: all 0.1s;
+  box-shadow: 0px 10px 50px -10px rgba(49, 49, 49, 0.116);
+}
+button:hover:enabled {
+  background-color: #075afd;
+  border-color: #075afd;
+  color: white;
+  box-shadow: 0px 10px 50px -10px #0759fd6b;
+}
+button:disabled {
+  cursor: not-allowed;
+  color: #ff374c;
+}
+</style>
 
 <script>
 export default {
@@ -30,6 +49,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>
