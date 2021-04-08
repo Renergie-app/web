@@ -4,7 +4,10 @@
       <NextButton text="Retour" @clicked="previousQuestion"></NextButton>
     </div>
     <question-card :question="questionList[indexQuestion].question">
-      <div v-if="questionList[indexQuestion].type === 'buttonChoice'">
+      <div
+        v-if="questionList[indexQuestion].type === 'buttonChoice'"
+        class="flex flex-row"
+      >
         <button-image
           @click="choiceHouse"
           v-for="(value, index) in questionList[indexQuestion].choices"
