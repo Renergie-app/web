@@ -31,12 +31,13 @@
       </p>
     </div>
     <div v-else>
-      <h3 class="text-xl font-semibold" style="color: var(--red)">
+      <h3 class="text-xl font-semibold mb-3" style="color: var(--red)">
         Information non trouvé
       </h3>
     </div>
 
     <NextButton text="Changer mes informations" @clicked="goBack"> </NextButton>
+    <slot />
   </div>
 </template>
 
