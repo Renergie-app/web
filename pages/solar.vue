@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="mt-5 m-5 h-screen w-screen items-center justify-center"
-    v-if="userInfo != null"
-  >
+  <page-container v-if="userInfo != null">
     <single-button text="Retour" @clicked="returnpage"></single-button>
     <h1>Bilan Avec Ajouts :</h1>
     <h2>
@@ -50,14 +47,16 @@
       :face="face"
       @change="requestBack"
     ></face-module>
-  </div>
+  </page-container>
 </template>
 
 <script>
 import Vue from 'vue'
 import solarPanelRequest from '../graphQL/solarpanel.graphql'
+import PageContainer from '../components/PageContainer.vue'
 
 export default {
+  components: { PageContainer },
   name: 'solar',
 
   data: () => ({

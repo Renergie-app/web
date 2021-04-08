@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 m-5 container h-screen w-screen items-center justify-center">
+  <page-container>
     <info-box></info-box>
     <energetic-label
       v-if="userInfo != null"
@@ -18,11 +18,13 @@
       </button-image>
       <button-image title="Isolation" img="/icon.png"> </button-image>
     </div>
-  </div>
+  </page-container>
 </template>
 
 <script>
+import PageContainer from '../components/PageContainer.vue'
 export default {
+  components: { PageContainer },
   name: 'home.vue',
 
   data: () => ({

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="container m-0 h-screen w-full flex-row items-center justify-center"
-  >
+  <page-container>
     <div v-if="indexQuestion > 0">
       <NextButton text="Retour" @clicked="previousQuestion"></NextButton>
     </div>
@@ -30,15 +28,17 @@
         </NextButton>
       </div>
     </question-card>
-  </div>
+  </page-container>
 </template>
 
 <script>
 import Vue from 'vue'
 import initialQuestion from 'assets/initialQuestions.json'
 import uinfo from 'assets/userInfo.json'
+import PageContainer from '../components/PageContainer.vue'
 
 export default {
+  components: { PageContainer },
   data: () => ({
     questionList: JSON.parse(JSON.stringify(initialQuestion)),
     questionListValid: [true, false, false, false],
