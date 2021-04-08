@@ -7,6 +7,7 @@
 
 <style scoped>
 button {
+  flex-shrink: 0;
   background-color: #ffffff;
   border-radius: 40px;
   box-shadow: 0px 10px 50px -10px rgba(49, 49, 49, 0.116);
