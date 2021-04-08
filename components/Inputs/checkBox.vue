@@ -1,23 +1,33 @@
 <template>
-  <div>
-    <input type="checkbox" v-model="value">
-    <label> {{ text }}</label>
+  <div class="flex flex-row justify-center m-2">
+    <input class="h-6 w-6 mr-3" type="checkbox" v-model="value" />
+    <label :class="value ? 'checked' : ''"> {{ text }}</label>
   </div>
-</template>
+</template> 
+
+<style scoped>
+label {
+  color: var(--text-sec);
+}
+
+.checked {
+  color: var(--text);
+}
+</style>
 
 <script>
 export default {
-  name: "checkBox",
+  name: 'checkBox',
 
   data: () => ({
     value: false,
   }),
 
   props: {
-    bus:{
-      required: true
+    bus: {
+      required: true,
     },
-    id:{
+    id: {
       required: false,
     },
     text: {
@@ -28,25 +38,21 @@ export default {
 
   watch: {
     value: function (val) {
-      this.$emit("change", val);
+      this.$emit('change', val)
     },
   },
 
-  methods:{
-    setValue(val){
-      this.value = val;
+  methods: {
+    setValue(val) {
+      this.value = val
     },
   },
 
   mounted() {
-    this.value = this.valueInit;
-    if(this.id == undefined) this.bus.$on('setCheckBox', this.setValue);
-    else this.bus.$on('setCheckBox'+this.id, this.setValue);
-  }
-
+    this.value = this.valueInit
+    if (this.id == undefined) this.bus.$on('setCheckBox', this.setValue)
+    else this.bus.$on('setCheckBox' + this.id, this.setValue)
+  },
 }
 </script>
 
-<style scoped>
-
-</style>
