@@ -2,7 +2,7 @@
   <input
     class="font-semibold p-4 mr-5"
     type="text"
-    placeholder="35000"
+    :placeholder="placeholder"
     @change="change"
     v-model="text"
     :style="{ color: colorText }"
@@ -20,7 +20,7 @@ input {
 export default {
   name: 'InputText',
 
-  props: ['rules', 'bus', 'id'],
+  props: ['rules', 'bus', 'id', 'placeholder'],
 
   data: () => ({
     text: '',
