@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-col p-5 container">
+  <div class="flex-col p-5 outer">
     <div class="text-lg font-bold">
       {{ question }}
     </div>
@@ -9,7 +9,8 @@
   </div>
 </template>
 <style scoped>
-.container {
+.outer {
+  flex-grow: 0;
   border-radius: 40px;
   background-color: white;
   box-shadow: 0px 10px 50px -10px rgba(49, 49, 49, 0.116);
