@@ -12,6 +12,7 @@
 .container {
   border-radius: 40px;
   background-color: white;
+  box-shadow: 0px 10px 50px -10px rgba(49, 49, 49, 0.116);
 }
 </style>
 
