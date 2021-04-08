@@ -5,6 +5,7 @@
     :disabled="disabled"
   >
     {{ text }}
+    <slot class="slot" />
   </button>
 </template>
 
