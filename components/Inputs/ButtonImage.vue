@@ -1,6 +1,6 @@
 <template>
   <button class="m-6 p-5 flex flex-col items-center w-44" @click="click">
-    <img :src="img" :alt="title" class="h-32 w-32" />
+    <img v-if="img" class="p-7 h-32 w-32" :src="img" :alt="title" />
     <div class="text-lg font-semibold mb-1 mt-2">{{ title }}</div>
   </button>
 </template>
@@ -11,18 +11,22 @@ button {
   background-color: var(--bg-card);
   border-radius: 40px;
   box-shadow: 0px 10px 60px -10px rgba(49, 49, 49, 0.247);
+  transition: all 0.05s;
 }
 
 img {
   border-radius: 25px;
-  background-color: var(--blue);
+  background-color: rgb(255, 255, 255);
   transition: all 0.1s;
 }
 button:hover img {
-  background-color: var(--red);
+  background-color: var(--blue);
 }
 div {
   color: var(--text-sec);
+}
+button:hover {
+  transform: scale(1.2);
 }
 </style>
 <script>
