@@ -3,7 +3,8 @@
     class="font-semibold p-4 mr-5 text-lg"
     type="text"
     :placeholder="placeholder"
-    @change="change"
+    @change="commit"
+    @input="change"
     v-model="text"
     :style="{ color: colorText }"
   />
@@ -47,7 +48,11 @@ export default {
       this.text = text
       this.change()
     },
-    change() {
+    commit() {
+      this.valid = this.checkRules()
+      this.$emit('commit', { text: this.text, valid: this.valid })
+    },
+    change(){
       this.valid = this.checkRules()
       this.$emit('change', { text: this.text, valid: this.valid })
     },

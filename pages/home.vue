@@ -51,7 +51,7 @@ export default {
 
   mounted() {
     this.userInfo = this.$store.getters['getUserInfo']
-    if (this.userInfo == null) this.$router.push('/')
+    if (this.userInfo.homeType.value === "None") this.$router.push('/')
   },
 }
 </script>

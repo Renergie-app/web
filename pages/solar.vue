@@ -134,7 +134,7 @@ export default {
 
   mounted() {
     this.userInfo = this.$store.getters['getUserInfo']
-    if (this.userInfo == null) {
+    if (this.userInfo.homeType.value === "None") {
       this.$router.push('/')
     } else {
       if (this.userInfo.sellAll) this.bus.$emit('setCheckBox0', true)
