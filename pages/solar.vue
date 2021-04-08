@@ -1,52 +1,60 @@
 <template>
   <page-container v-if="userInfo != null">
-    <single-button text="Retour" @clicked="returnpage"></single-button>
-    <h1>Bilan Avec Ajouts :</h1>
-    <h2>
-      Nombre de panneaux solaires installés : {{ userInfo.solarModule.nbPanel }}
-    </h2>
-    <h2>
-      Production électrique total : {{ userInfo.solarModule.prod }} kWh / an
-    </h2>
-    <h2>Bilan finançier :</h2>
-    <h3>Aide de l'état : {{ userInfo.solarModule.statehelp }} €</h3>
-    <h3>Coût total : {{ userInfo.solarModule.price }} €</h3>
-    <br />
-    <h1>Ajouts de panneaux photovoltaïques :</h1>
-    <br />
-    <h2>Projet de production éléctrique :</h2>
-    <check-box text="Vente Totale" :bus="bus" id="0" @change="changeSellAll">
-    </check-box>
-    <check-box
-      text="AutoConsommation et vente surplus"
-      :bus="bus"
-      id="1"
-      @change="changeAutoC"
-    >
-    </check-box>
-    <br />
-    <h2>Mode de pose :</h2>
-    <check-box text="Intégration" :bus="bus" id="2" @change="changeIntegration">
-    </check-box>
-    <check-box
-      text="Surimposition"
-      :bus="bus"
-      id="3"
-      @change="changeSurimposition"
-    >
-    </check-box>
-    <br />
-    <face-selector
-      v-if="userInfo != null"
-      :solarfaces="userInfo.solarModule.faces"
-    ></face-selector>
-    <face-module
-      v-if="userInfo != null"
-      v-for="(face, index) in correctFaces"
-      :key="index"
-      :face="face"
-      @change="requestBack"
-    ></face-module>
+    <div>
+      <single-button text="Retour" @clicked="returnpage"></single-button>
+      <h1>Bilan Avec Ajouts :</h1>
+      <h2>
+        Nombre de panneaux solaires installés :
+        {{ userInfo.solarModule.nbPanel }}
+      </h2>
+      <h2>
+        Production électrique total : {{ userInfo.solarModule.prod }} kWh / an
+      </h2>
+      <h2>Bilan finançier :</h2>
+      <h3>Aide de l'état : {{ userInfo.solarModule.statehelp }} €</h3>
+      <h3>Coût total : {{ userInfo.solarModule.price }} €</h3>
+      <br />
+      <h1>Ajouts de panneaux photovoltaïques :</h1>
+      <br />
+      <h2>Projet de production éléctrique :</h2>
+      <check-box text="Vente Totale" :bus="bus" id="0" @change="changeSellAll">
+      </check-box>
+      <check-box
+        text="AutoConsommation et vente surplus"
+        :bus="bus"
+        id="1"
+        @change="changeAutoC"
+      >
+      </check-box>
+      <br />
+      <h2>Mode de pose :</h2>
+      <check-box
+        text="Intégration"
+        :bus="bus"
+        id="2"
+        @change="changeIntegration"
+      >
+      </check-box>
+      <check-box
+        text="Surimposition"
+        :bus="bus"
+        id="3"
+        @change="changeSurimposition"
+      >
+      </check-box>
+      <br />
+      <face-selector
+        v-if="userInfo != null"
+        :solarfaces="userInfo.solarModule.faces"
+      ></face-selector>
+      <face-module
+        v-if="userInfo != null"
+        v-for="(face, index) in correctFaces"
+        :key="index"
+        :face="face"
+        @change="requestBack"
+      ></face-module>
+    </div>
   </page-container>
 </template>
 
