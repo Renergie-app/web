@@ -1,15 +1,15 @@
 [
   {
-    "question" : "Vivez vous dans un appartement ou dans une maison ?",
+    "question" : "Quel est votre type de logement ?",
     "type": "buttonChoice",
     "choices": [
       {
         "text": "Maison",
-        "img": "/icon.png"
+        "img": "/house.png"
       },
       {
         "text": "Appartement",
-        "img": "/icon.png"
+        "img": "/building.png"
       }
     ]
   },
