@@ -1,7 +1,11 @@
 <template>
   <page-container>
     <div v-if="indexQuestion > 0">
-      <NextButton text="Retour" @clicked="previousQuestion"></NextButton>
+      <NextButton
+        class="m-5"
+        text="Retour"
+        @clicked="previousQuestion"
+      ></NextButton>
     </div>
     <question-card :question="questionList[indexQuestion].question">
       <div
@@ -14,7 +18,8 @@
           :key="index"
           :title="value.text"
           :img="value.img"
-        />
+        >
+        </button-image>
       </div>
       <div v-if="questionList[indexQuestion].type === 'inputText'">
         <input-text
