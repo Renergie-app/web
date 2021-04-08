@@ -1,7 +1,7 @@
 <template>
-  <button class="m-6 p-5 flex-col" @click="click">
+  <button class="m-6 p-5 flex flex-col items-center w-44" @click="click">
     <img :src="img" :alt="title" class="h-32 w-32" />
-    <div class="text-lg font-semibold">{{ title }}</div>
+    <div class="text-lg font-semibold mb-1 mt-2">{{ title }}</div>
   </button>
 </template>
 
