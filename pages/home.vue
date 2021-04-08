@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 container h-screen w-screen items-center justify-center">
+  <div class="mt-5 m-5 container h-screen w-screen items-center justify-center">
     <info-box></info-box>
     <energetic-label
       v-if="userInfo != null"
@@ -41,9 +41,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.container {
-  background-color: #eaedf2;
-}
-</style>

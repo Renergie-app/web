@@ -1,7 +1,10 @@
 <template>
   <div
-    class="bg-gray-100 container h-screen w-screen flex items-center justify-center"
+    class="container m-0 h-screen w-full flex-row items-center justify-center"
   >
+    <div v-if="indexQuestion > 0">
+      <NextButton text="Retour" @clicked="previousQuestion"></NextButton>
+    </div>
     <question-card :question="questionList[indexQuestion].question">
       <div v-if="questionList[indexQuestion].type === 'buttonChoice'">
         <button-image
@@ -27,9 +30,6 @@
         </NextButton>
       </div>
     </question-card>
-    <div v-if="indexQuestion > 0">
-      <NextButton text="Retour" @clicked="previousQuestion"></NextButton>
-    </div>
   </div>
 </template>
 
@@ -116,9 +116,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.container {
-  background-color: #eaedf2;
-}
-</style>
