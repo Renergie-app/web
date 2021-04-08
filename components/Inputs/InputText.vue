@@ -1,6 +1,6 @@
 <template>
   <input
-    class="font-semibold p-4 mr-5"
+    class="font-semibold p-4 mr-5 text-lg"
     type="text"
     :placeholder="placeholder"
     @change="change"
@@ -13,6 +13,10 @@
 input {
   border-radius: 20px;
   background-color: var(--bg-sec);
+  transition: all 0.05s;
+}
+input:hover {
+  transform: scale(1.05);
 }
 </style>
 
