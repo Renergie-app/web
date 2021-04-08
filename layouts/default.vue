@@ -20,6 +20,11 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
 
 *,
 *::before,
