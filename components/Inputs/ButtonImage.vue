@@ -8,17 +8,21 @@
 <style scoped>
 button {
   flex-shrink: 0;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border-radius: 40px;
-  box-shadow: 0px 10px 50px -10px rgba(49, 49, 49, 0.247);
+  box-shadow: 0px 10px 60px -10px rgba(49, 49, 49, 0.247);
 }
 
 img {
   border-radius: 25px;
-  background-color: #075afd;
+  background-color: var(--blue);
+  transition: all 0.1s;
+}
+button:hover img {
+  background-color: var(--red);
 }
 div {
-  color: #9495ac;
+  color: var(--text-sec);
 }
 </style>
 <script>

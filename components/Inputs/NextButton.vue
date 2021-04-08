@@ -12,19 +12,18 @@
 button {
   border-radius: 20px;
   background-color: transparent;
-  border: 2px solid #e8e8e9;
+  border: 2px solid var(--bg-grey);
   transition: all 0.1s;
-  box-shadow: 0px 10px 50px -10px rgba(49, 49, 49, 0.116);
 }
 button:hover:enabled {
-  background-color: #075afd;
-  border-color: #075afd;
+  background-color: var(--blue);
+  border-color: var(--blue);
   color: white;
-  box-shadow: 0px 10px 50px -10px #0759fd6b;
+  box-shadow: 0px 10px 60px -10px var(--blue);
 }
 button:disabled {
   cursor: not-allowed;
-  color: #ff374c;
+  color: var(--red);
 }
 </style>
 

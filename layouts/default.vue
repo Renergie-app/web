@@ -19,6 +19,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+
+  --bg: #edf0f5;
+  --bg-card: #ffffff;
+  --bg-sec: #f4f6f8;
+  --bg-grey: #eaeaeb;
+  --blue: #0459fd;
+  --red: #ff374c;
+  --text-main: #000000;
+  --text-sec: #8b8ca5;
 }
 body,
 html {

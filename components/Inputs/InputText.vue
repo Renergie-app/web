@@ -1,6 +1,6 @@
 <template>
   <input
-    class="font-semibold p-4"
+    class="font-semibold p-4 mr-5"
     type="text"
     placeholder="35000"
     @change="change"
@@ -12,7 +12,7 @@
 <style scoped>
 input {
   border-radius: 20px;
-  background-color: #f4f6f8;
+  background-color: var(--bg-sec);
 }
 </style>
 
@@ -29,7 +29,7 @@ export default {
 
   computed: {
     colorText() {
-      return this.valid ? '#9495ac' : '#FF374C'
+      return this.valid ? 'var(--text-sec)' : 'var(--red)'
     },
   },
 
