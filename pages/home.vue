@@ -20,8 +20,8 @@
         d'idées de vos investissements et de leur rentabilité.
       </info-box>
     </div>
-    <h1 class="text-3xl font-light opacity-80">
-      Choississez votre rénovation :
+    <h1 class="text-3xl font-light opacity-80 ml-4 mr-4 text-center">
+      Choississez votre rénovation
     </h1>
     <div class="flex flex-row items-center flex-wrap justify-center mb-10">
       <button-image title="Eolien">
