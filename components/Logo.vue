@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="logo"
+    class="logo h-28 mt-10"
     id="Clean"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1024 1024"
@@ -37,16 +37,10 @@
 
 <style>
 .logo {
+  cursor: pointer;
   stroke: transparent;
-  animation: 1s appea, 5s ease-in-out 1s infinite alternate hover;
-  margin: auto;
-  filter: drop-shadow(0 0 20px rgb(240, 250, 238));
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
+  animation: 5s ease-in-out 1s infinite alternate hover;
+  filter: drop-shadow(0 0 20px rgb(255, 255, 255));
 }
 
 @keyframes hover {
@@ -55,7 +49,7 @@
   }
 
   100% {
-    transform: translate(0, -20px);
+    transform: translate(0, -15px);
   }
 }
 </style>
