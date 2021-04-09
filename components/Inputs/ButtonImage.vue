@@ -7,7 +7,9 @@
     >
       <slot />
     </div>
-    <div class="text-xl font-semibold mb-1 mt-2">{{ title }}</div>
+    <div class="text-xl leading-6 title font-semibold mb-1 mt-2">
+      {{ title }}
+    </div>
   </button>
 </template>
 
@@ -17,7 +19,7 @@ button {
   background-color: var(--bg-card);
   border-radius: 40px;
   box-shadow: 0px 10px 60px -10px rgba(49, 49, 49, 0.247);
-  transition: all 0.05s;
+  transition: all 0.1s;
 }
 
 img,
@@ -27,19 +29,24 @@ img,
   transition: all 0.1s;
   fill: var(--text-sec);
   stroke: var(--text-sec);
+  transition: all 0.1s;
 }
 button:hover img,
 button:hover .svgContainer {
   fill: white;
   stroke: white;
   background-color: var(--blue);
+  box-shadow: 0px 10px 60px -10px var(--blue);
 }
 .svgContainer svg {
   height: 5rem;
 }
-
-title {
+.title {
   color: var(--text-sec);
+  transition: all 0.1s;
+}
+button:hover .title {
+  color: rgb(73, 73, 73);
 }
 button:hover {
   transform: scale(1.05);
