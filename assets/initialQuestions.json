@@ -4,12 +4,10 @@
     "type": "buttonChoice",
     "choices": [
       {
-        "text": "Maison",
-        "img": "/house.png"
+        "text": "Maison"
       },
       {
-        "text": "Appartement",
-        "img": "/building.png"
+        "text": "Appartement"
       }
     ]
   },
