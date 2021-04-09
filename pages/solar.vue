@@ -8,7 +8,7 @@
         />
       </svg>
     </single-button>
-    <div class="flex flex-row">
+    <div class="flex flex-row mb-10">
       <div class="m-10">
         <h1>Ajouts de panneaux photovoltaïques :</h1>
         <h2>Projet de production éléctrique :</h2>
@@ -71,6 +71,14 @@
     </div>
   </page-container>
 </template>
+<style scoped>
+h1 {
+  font-weight: 700;
+  font-size: 1.875rem /* 30px */;
+  line-height: 2.25rem /* 36px */;
+  margin-bottom: 0.5rem /* 8px */;
+}
+</style>
 
 <script>
 import Vue from 'vue'
@@ -162,5 +170,3 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>

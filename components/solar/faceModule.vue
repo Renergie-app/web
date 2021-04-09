@@ -1,5 +1,5 @@
 <template>
-  <div class="m-3 flex flex-col p-5 rounded-3xl bg-white">
+  <div class="m-3 flex flex-col p-5 rounded-3xl bg-white shadow-2xl">
     <h1>Façade {{ face.orientation }}</h1>
     <p>Surface de panneaux :</p>
     <input-text
