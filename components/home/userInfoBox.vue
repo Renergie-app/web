@@ -1,5 +1,5 @@
 <template>
-  <div class="outer p-7 m-10">
+  <div class="outer p-7 m-10 shadow-2xl">
     <h1 class="font-bold text-3xl mb-2">Mon profil</h1>
 
     <div v-if="userInfo != null" class="mb-5">
@@ -53,7 +53,6 @@ p {
 .outer {
   border-radius: 40px;
   background-color: var(--bg-card);
-  box-shadow: 0px 10px 60px -10px rgba(49, 49, 49, 0.247);
 }
 </style>
 <script>
