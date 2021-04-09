@@ -9,6 +9,8 @@
     </div>
     <p> Production éléctrique : {{ face.prod }} kWh</p>
     <p> Gain en argent : {{ face.gain }} € / an</p>
+    <p> Coût : {{ face.price }} € </p>
+    <p> Nombre de panneaux : {{ face.nb }} </p>
   </div>
 </template>
 

@@ -5,6 +5,8 @@ query Solarpanel($facades : [Facade!]!, $integrated : Boolean!, $zip : String!, 
       cost
       powerOutputKWH
       profit
+      angle
+      orientation
     }
     stateFinancialHelp
     totalAmountOfSolarPanels

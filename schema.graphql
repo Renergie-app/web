@@ -9,6 +9,8 @@ type FacadeResponse {
   cost: Float!
   powerOutputKWH: Float!
   profit: Float!
+  orientation: Orientation!
+  angle: Int!
 }
 
 type Query {
