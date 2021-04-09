@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .bar {
   border-radius: 10px;
 }
