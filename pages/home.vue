@@ -1,5 +1,6 @@
 <template>
   <page-container>
+    <logo />
     <div class="flex flex-row">
       <user-info-box :user-info="userInfo">
         <energetic-label
@@ -34,9 +35,10 @@
 </template>
 
 <script>
+import Logo from '../components/Logo.vue'
 import PageContainer from '../components/PageContainer.vue'
 export default {
-  components: { PageContainer },
+  components: { PageContainer, Logo },
   name: 'home.vue',
 
   data: () => ({
@@ -51,7 +53,7 @@ export default {
 
   mounted() {
     this.userInfo = this.$store.getters['getUserInfo']
-    if (this.userInfo.homeType.value === "None") this.$router.push('/')
+    if (this.userInfo.homeType.value === 'None') this.$router.push('/')
   },
 }
 </script>
