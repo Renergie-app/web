@@ -1,9 +1,9 @@
 <template>
-  <div class="flex-col p-7 outer">
-    <div class="question text-xl font-bold mb-5">
+  <div class="flex-col outer m-10">
+    <div class="question text-xl font-bold m-5">
       {{ question }}
     </div>
-    <div class="w-full flex justify-center">
+    <div class="m-5 flex justify-center">
       <slot />
     </div>
   </div>
