@@ -20,7 +20,8 @@
 .svgContainer svg {
   height: 2em;
 }
-button:hover:enabled svg {
+button:hover:enabled svg,
+button:focus:enabled svg {
   fill: white;
   stroke: white;
 }
@@ -29,8 +30,10 @@ button {
   background-color: transparent;
   border: 2px solid var(--bg-grey);
   transition: all 0.1s;
+  outline: none;
 }
-button:hover:enabled {
+button:hover:enabled,
+button:focus:enabled {
   background-color: var(--blue);
   border-color: var(--blue);
   color: white;

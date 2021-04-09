@@ -15,6 +15,7 @@
 
 <style scoped>
 button {
+  outline: none;
   flex-shrink: 0;
   background-color: var(--bg-card);
   border-radius: 40px;
@@ -32,7 +33,9 @@ img,
   transition: all 0.1s;
 }
 button:hover img,
-button:hover .svgContainer {
+button:hover .svgContainer,
+button:focus img,
+button:focus .svgContainer {
   fill: white;
   stroke: white;
   background-color: var(--blue);
@@ -45,10 +48,12 @@ button:hover .svgContainer {
   color: var(--text-sec);
   transition: all 0.1s;
 }
-button:hover .title {
+button:hover .title,
+button:focus .title {
   color: rgb(73, 73, 73);
 }
-button:hover {
+button:hover,
+button:focus {
   transform: scale(1.05);
 }
 </style>

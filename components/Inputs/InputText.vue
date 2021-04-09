@@ -15,8 +15,10 @@ input {
   border-radius: 20px;
   background-color: var(--bg-sec);
   transition: all 0.05s;
+  outline: none;
 }
-input:hover {
+input:hover,
+input:focus {
   transform: scale(1.05);
 }
 </style>
