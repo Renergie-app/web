@@ -52,7 +52,7 @@ export default {
       this.valid = this.checkRules()
       this.$emit('commit', { text: this.text, valid: this.valid })
     },
-    change(){
+    change() {
       this.valid = this.checkRules()
       this.$emit('change', { text: this.text, valid: this.valid })
     },
