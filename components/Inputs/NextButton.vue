@@ -1,15 +1,27 @@
 <template>
   <button
-    class="flex-col p-5 font-semibold"
+    class="flex-col p-2 font-semibold"
     @click="click"
     :disabled="disabled"
   >
     {{ text }}
-    <slot class="slot" />
+    <div
+      v-if="!text"
+      class="w-10 h-10 svgContainer flex justify-center items-center"
+    >
+      <slot />
+    </div>
   </button>
 </template>
 
 <style scoped>
+.svgContainer svg {
+  height: 2em;
+}
+button:hover:enabled svg {
+  fill: white;
+  stroke: white;
+}
 button {
   border-radius: 20px;
   background-color: transparent;
