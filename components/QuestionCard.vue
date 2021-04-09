@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-col outer m-10">
+  <div class="flex-col outer m-10 shadow-2xl mb-20">
     <div class="question text-xl font-bold m-7 mb-5">
       {{ question }}
     </div>
@@ -13,7 +13,6 @@
   flex-grow: 0;
   border-radius: 40px;
   background-color: var(--bg-card);
-  box-shadow: 0px 5px 50px -10px rgba(49, 49, 49, 0.116);
 }
 </style>
 
