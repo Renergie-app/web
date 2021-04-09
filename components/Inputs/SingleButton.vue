@@ -4,7 +4,9 @@
     @click="click"
     :disabled="disabled"
   >
-    {{ text }}
+    <div v-if="text" class="pr-2 pl-2">
+      {{ text }}
+    </div>
     <div
       v-if="!text"
       class="w-10 h-10 svgContainer flex justify-center items-center"
@@ -42,7 +44,7 @@ button:disabled {
 
 <script>
 export default {
-  name: 'NextButton',
+  name: 'single-button',
   props: ['text', 'enable'],
 
   computed: {

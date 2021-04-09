@@ -36,7 +36,8 @@
       </h3>
     </div>
 
-    <NextButton text="Changer mes informations" @clicked="goBack"> </NextButton>
+    <single-button text="Changer mes informations" @clicked="goBack">
+    </single-button>
     <slot />
   </div>
 </template>
@@ -56,6 +57,7 @@ p {
 }
 </style>
 <script>
+import SingleButton from '../Inputs/SingleButton.vue'
 export default {
   name: 'userInfoBox',
   props: ['userInfo'],
