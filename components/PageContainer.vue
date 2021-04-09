@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-screen w-screen justify-center items-center">
+  <div class="flex flex-col w-full justify-center items-center overflow-auto">
     <slot />
   </div>
 </template>
@@ -9,6 +9,4 @@ export default {}
 </script>
 
 <style>
-div {
-}
 </style>
