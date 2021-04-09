@@ -30,7 +30,10 @@ html {
   --text-sec: #8b8ca5;
 }
 body,
-html {
+html,
+#__nuxt,
+#__layout,
+#__layout > div {
   height: 100%;
   width: 100%;
 }
