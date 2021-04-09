@@ -12,37 +12,39 @@
       <div class="m-10">
         <h1>Ajouts de panneaux photovoltaïques :</h1>
         <h2>Projet de production éléctrique :</h2>
-        <check-box
-          text="Vente Totale"
-          :bus="bus"
-          id="0"
-          @change="changeSellAll"
-        >
-        </check-box>
-        <check-box
-          text="AutoConsommation et vente surplus"
-          :bus="bus"
-          id="1"
-          @change="changeAutoC"
-        >
-        </check-box>
-        <br />
+        <div class="flex flex-col items-start ml-6">
+          <check-box
+            text="Vente Totale"
+            :bus="bus"
+            id="0"
+            @change="changeSellAll"
+          >
+          </check-box>
+          <check-box
+            text="AutoConsommation et vente surplus"
+            :bus="bus"
+            id="1"
+            @change="changeAutoC"
+          >
+          </check-box>
+        </div>
         <h2>Mode de pose :</h2>
-        <check-box
-          text="Intégration"
-          :bus="bus"
-          id="2"
-          @change="changeIntegration"
-        >
-        </check-box>
-        <check-box
-          text="Surimposition"
-          :bus="bus"
-          id="3"
-          @change="changeSurimposition"
-        >
-        </check-box>
-        <br />
+        <div class="flex flex-col items-start ml-6">
+          <check-box
+            text="Intégration"
+            :bus="bus"
+            id="2"
+            @change="changeIntegration"
+          >
+          </check-box>
+          <check-box
+            text="Surimposition"
+            :bus="bus"
+            id="3"
+            @change="changeSurimposition"
+          >
+          </check-box>
+        </div>
         <face-selector
           v-if="userInfo != null"
           :solarfaces="userInfo.solarModule.faces"
@@ -59,14 +61,21 @@
         <h1>Bilan avec ajouts</h1>
         <h2>
           Nombre de panneaux solaires installés :
-          {{ userInfo.solarModule.nbPanel }}
+          <span>
+            {{ userInfo.solarModule.nbPanel }}
+          </span>
         </h2>
         <h2>
-          Production électrique total : {{ userInfo.solarModule.prod }} kWh / an
+          Production électrique total :
+          <span>{{ userInfo.solarModule.prod }} kWh / an</span>
         </h2>
         <h2>Bilan finançier :</h2>
-        <h3>Aide de l'état : {{ userInfo.solarModule.statehelp }} €</h3>
-        <h3>Coût total : {{ userInfo.solarModule.price }} €</h3>
+        <h3>
+          Aide de l'état : <span>{{ userInfo.solarModule.statehelp }} € </span>
+        </h3>
+        <h3>
+          Coût total : <span> {{ userInfo.solarModule.price }} €</span>
+        </h3>
       </bilan-panel>
     </div>
   </page-container>
