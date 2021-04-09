@@ -1,5 +1,5 @@
 <template>
-  <div class="m-3 flex flex-col p-5 rounded-3xl bg-white shadow-2xl">
+  <div class="mt-3 flex flex-col p-5 rounded-3xl bg-white shadow-2xl">
     <h1>Façade {{ face.orientation }}</h1>
     <p>Surface de panneaux :</p>
     <input-text
@@ -23,12 +23,27 @@
       >
       </input-text>
     </div>
-    <p>Production éléctrique : {{ face.prod }} kWh</p>
-    <p>Gain en argent : {{ face.gain }} € / an</p>
-    <p>Coût : {{ face.price }} €</p>
-    <p>Nombre de panneaux : {{ face.nb }}</p>
+    <p>
+      Production éléctrique : <span>{{ face.prod }} kWh </span>
+    </p>
+    <p>
+      Gain en argent : <span>{{ face.gain }} € / an</span>
+    </p>
+    <p>
+      Coût : <span>{{ face.price }} €</span>
+    </p>
+    <p>
+      Nombre de panneaux : <span>{{ face.nb }}</span>
+    </p>
   </div>
 </template>
+
+<style scoped>
+span {
+  font-weight: 700;
+  font-size: 1rem;
+}
+</style>
 
 <script>
 import Vue from 'vue'
@@ -71,5 +86,3 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
