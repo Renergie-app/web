@@ -37,7 +37,16 @@ export const mutations = {
     if(data.totalCost !== undefined) state.userInfo.solarModule.price = data.totalCost;
     if(data.totalPowerOutputKWH !== undefined) state.userInfo.solarModule.prod = data.totalPowerOutputKWH;
     if(data.perFacadeDetails !== undefined){
-      console.log("new faces infos from backend")
+      data.perFacadeDetails.forEach((f) => {
+        state.userInfo.solarModule.faces.forEach((fu) => {
+          if(f.orientation === fu.orientationRequest && f.angle === fu.angle){
+            fu.prod = f.powerOutputKWH;
+            fu.gain = f.profit;
+            fu.price = f.cost;
+            fu.nb = f.amountOfSolarPanels;
+          }
+        });
+      });
     }
   },
   switchPoseSolarFace(state, index){

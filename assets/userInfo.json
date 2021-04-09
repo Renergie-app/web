@@ -30,7 +30,9 @@
         "orientation" : "Sud - Toiture",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "South"
+        "orientationRequest" : "South",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -40,7 +42,9 @@
         "orientation" : "Sud - Mur",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "South"
+        "orientationRequest" : "South",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -50,7 +54,9 @@
         "orientation" : "Sud Ouest - Toiture",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "SouthWest"
+        "orientationRequest" : "SouthWest",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -60,7 +66,9 @@
         "orientation" : "Sud Ouest - Mur",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "SouthWest"
+        "orientationRequest" : "SouthWest",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -70,7 +78,9 @@
         "orientation" : "Sud Est - Toiture",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "SouthEast"
+        "orientationRequest" : "SouthEast",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -80,7 +90,9 @@
         "orientation" : "Sud Est - Mur",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "SouthEast"
+        "orientationRequest" : "SouthEast",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -90,7 +102,9 @@
         "orientation" : "Est - Toiture",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "East"
+        "orientationRequest" : "East",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -100,7 +114,9 @@
         "orientation" : "Est - Mur",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "East"
+        "orientationRequest" : "East",
+        "price" : 0,
+        "nb" : 0
       },
       {
         "pose" : false,
@@ -110,7 +126,9 @@
         "orientation" : "Plate",
         "prod": 0,
         "gain": 0,
-        "orientationRequest" : "NONE"
+        "orientationRequest" : "NONE",
+        "price" : 0,
+        "nb" : 0
       }
     ]
   }
