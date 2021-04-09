@@ -23,7 +23,7 @@ html {
   --bg: #edf0f5;
   --bg-card: #ffffff;
   --bg-sec: #f4f6f8;
-  --bg-grey: #eaeaeb;
+  --bg-grey: #dddddd;
   --blue: #0459fd;
   --red: #ff374c;
   --text-main: #000000;
