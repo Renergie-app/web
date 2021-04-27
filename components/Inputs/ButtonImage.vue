@@ -67,7 +67,7 @@ export default {
     },
     img: {
       type: String,
-      required: true,
+      required: false,
     },
   },
 

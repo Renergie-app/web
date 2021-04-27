@@ -1,0 +1,28 @@
+[
+  {
+    "question" : "Emplacement de pose de l'éolienne ?",
+    "type": "buttonChoice",
+    "numero" : 1,
+    "choices": [
+      {
+        "text": "Toiture"
+      },
+      {
+        "text": "Sol"
+      }
+    ]
+  },
+  {
+    "question" : "Choix de l'éolienne :",
+    "type": "buttonChoice",
+    "numero" :2,
+    "choices": [
+      {
+        "text": "Eolienne Horizontale"
+      },
+      {
+        "text": "Eolienne Verticale"
+      }
+    ]
+  }
+]
