@@ -1,13 +1,13 @@
 <template>
-  <button class="m-6 p-5 flex flex-col items-center w-44" @click="click">
+  <button class="m-6 p-5 flex flex-col items-center w-36 h-44" @click="click">
     <img v-if="img" class="title p-7 h-full w-full" :src="img" :alt="title" />
     <div
       v-if="!img"
-      class="svgContainer h-32 w-32 p-5 flex items-center justify-center"
+      class="svgContainer h-24 w-24 p-5 flex items-center justify-center"
     >
       <slot />
     </div>
-    <div class="text-xl leading-6 title font-semibold mb-1 mt-2">
+    <div class="text-xl leading-5 title font-semibold mb-1 mt-2">
       {{ title }}
     </div>
   </button>
