@@ -94,7 +94,9 @@ export default {
           this.userInfo.homeArea.value = data.text
           break
         case 3:
-          this.userInfo.elecConsumptionTotal.value = Math.trunc(parseFloat(data.text) / 0.1765);
+          this.userInfo.elecConsumptionTotal.value = Math.trunc(
+            parseFloat(data.text) / 0.1765
+          )
           break
       }
     },
@@ -122,7 +124,9 @@ export default {
             text = this.userInfo.homeArea.value
             break
           case 3:
-            text = Math.trunc(parseFloat(this.userInfo.elecConsumptionTotal.value) * 0.1765);
+            text = Math.trunc(
+              parseFloat(this.userInfo.elecConsumptionTotal.value) * 0.1765
+            )
             break
         }
         this.bus.$emit('setText', text)
