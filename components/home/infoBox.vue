@@ -1,7 +1,7 @@
 <template>
-  <div class="p-5 m-10 max-w-md flex flex-col justify-center outer">
+  <div class="m-5 max-w-xs flex flex-col justify-center outer">
     <svg
-      class="h-10 m-6 opacity-70"
+      class="h-10 mb-6 opacity-70"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
     >
