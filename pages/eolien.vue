@@ -1,10 +1,10 @@
 <template>
   <page-container>
     <div v-if="state === -1">
-      <p>
+      <h2>
         Votre logement ne remplis pas les conditions pour nécessaires pour la
         pose d'éoliennes.
-      </p>
+      </h2>
       <single-button @clicked="returnpage">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path
@@ -120,15 +120,21 @@
         </svg>
       </single-button>
       <bilan-panel class="m-10">
-        <p>BILAN INSTALLATION EOLIENNE :</p>
-        <p>type : {{ userInfo.eolien.type }}</p>
-        <p>Cout total : XXX €</p>
+        <h1>Bilan d'installation éolienne :</h1>
+        <h2>
+          type : <b>{{ userInfo.eolien.type }}</b>
+        </h2>
+        <h2>Cout total : <b>XXX €</b></h2>
         <br />
-        <p>Production électrique /an : XXX kWh</p>
-        <p>Gain revente totale /an : XXX</p>
-        <p>Amortissement finançier après XX ans</p>
+        <h2>Production électrique /an : <b>XXX kWh</b></h2>
+        <h2>Gain revente totale /an : <b>XXX</b></h2>
+        <h2>Amortissement finançier après <b>XX ans</b></h2>
       </bilan-panel>
-      <single-button text="Changer mes informations" @clicked="reset">
+      <single-button
+        text="Changer mes informations"
+        @clicked="reset"
+        class="mb-24"
+      >
       </single-button>
     </div>
   </page-container>

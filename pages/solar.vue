@@ -27,8 +27,16 @@
             @change="changeAutoC"
           >
           </check-box>
-          <p> Part d'autoconsomation : {{ autoconsommation }} % </p>
-          <input type="range" min="0" max="100" value="50" class="ml-10" v-model="autoconsommation" @input="changeAutoConso">
+          <p>Part d'autoconsomation : {{ autoconsommation }} %</p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="ml-10"
+            v-model="autoconsommation"
+            @input="changeAutoConso"
+          />
         </div>
         <h2>Mode de pose :</h2>
         <div class="flex flex-col items-start ml-6">
@@ -63,48 +71,47 @@
         <h1>Bilan avec ajouts</h1>
         <h2>
           Nombre de panneaux solaires installés :
-          <span>
+          <b>
             {{ userInfo.solarModule.nbPanel }}
-          </span>
+          </b>
         </h2>
         <h2>
           Production électrique total :
-          <span>{{ userInfo.solarModule.prod }} kWh / an</span>
+          <b>{{ userInfo.solarModule.prod }} kWh / an</b>
         </h2>
         <h2>Bilan finançier :</h2>
         <h3>
-          Coût de l'aménagement : <span>{{ userInfo.solarModule.price }} € </span>
+          Coût de l'aménagement : <b>{{ userInfo.solarModule.price }} € </b>
         </h3>
         <h3>
-          Aide de l'état : <span>{{ userInfo.solarModule.statehelp }} € </span>
+          Aide de l'état : <b>{{ userInfo.solarModule.statehelp }} € </b>
         </h3>
+        <h3>-------------------------------------------------------</h3>
         <h3>
-          -------------------------------------------------------
+          Coût total :
+          <b>
+            {{
+              userInfo.solarModule.price - userInfo.solarModule.statehelp
+            }}
+            €</b
+          >
         </h3>
-        <h3>
-          Coût total : <span> {{ userInfo.solarModule.price - userInfo.solarModule.statehelp }} €</span>
-        </h3>
-        <h3>
-          -------------------------------------------------------
-        </h3>
+        <h3>-------------------------------------------------------</h3>
         <h2>Rentabilité :</h2>
         <h3>
-          Revenu Annuel Estimé : <span>{{ getGainAll }} € / an </span>
+          Revenu Annuel Estimé : <b>{{ getGainAll }} € / an </b>
         </h3>
         <h3>
-          Economie Annuelle sur la facture : <span>{{ getEconomieFacture }} € / an </span>
+          Economie Annuelle sur la facture :
+          <b>{{ getEconomieFacture }} € / an </b>
         </h3>
+        <h3>-------------------------------------------------------</h3>
         <h3>
-          -------------------------------------------------------
+          Profit Totale : <b>{{ getProfit }} € / an </b>
         </h3>
+        <h3>-------------------------------------------------------</h3>
         <h3>
-          Profit Totale  : <span>{{ getProfit }} € / an </span>
-        </h3>
-        <h3>
-          -------------------------------------------------------
-        </h3>
-        <h3>
-          Aménagement rentable au bout de  : <span>{{ rentable }} ans </span>
+          Aménagement rentable au bout de : <b>{{ rentable }} ans </b>
         </h3>
       </bilan-panel>
     </div>
@@ -133,7 +140,7 @@ export default {
   data: () => ({
     userInfo: null,
     bus: new Vue(),
-    autoconsommation : 50,
+    autoconsommation: 50,
   }),
 
   computed: {
@@ -141,32 +148,40 @@ export default {
       if (this.userInfo == null) return []
       return this.userInfo.solarModule.faces.filter((face) => face.pose)
     },
-    getGainAll(){
+    getGainAll() {
       if (this.userInfo == null) return 0
-      var conso = this.autoconsommation;
-      if(this.userInfo.solarModule.sellAll) conso = 0;
-      var total = 0;
-      this.userInfo.solarModule.faces.filter((face) => face.pose).forEach((f) => {
-        total += f.gain;
-      });
-      return Math.trunc(total * (100 - conso) / 100);
+      var conso = this.autoconsommation
+      if (this.userInfo.solarModule.sellAll) conso = 0
+      var total = 0
+      this.userInfo.solarModule.faces
+        .filter((face) => face.pose)
+        .forEach((f) => {
+          total += f.gain
+        })
+      return Math.trunc((total * (100 - conso)) / 100)
     },
-    getEconomieFacture(){
-      if (this.userInfo == null) return 0;
-      if(this.userInfo.solarModule.sellAll) return 0;
-      var total = 0;
-      this.userInfo.solarModule.faces.filter((face) => face.pose).forEach((f) => {
-        total += f.prod;
-      });
-      return Math.trunc(total * (this.autoconsommation) / 100 * 0.1765);
+    getEconomieFacture() {
+      if (this.userInfo == null) return 0
+      if (this.userInfo.solarModule.sellAll) return 0
+      var total = 0
+      this.userInfo.solarModule.faces
+        .filter((face) => face.pose)
+        .forEach((f) => {
+          total += f.prod
+        })
+      return Math.trunc(((total * this.autoconsommation) / 100) * 0.1765)
     },
-    getProfit(){
-      return this.getEconomieFacture + this.getGainAll;
+    getProfit() {
+      return this.getEconomieFacture + this.getGainAll
     },
-    rentable(){
-      if (this.userInfo == null) return 0;
-      if(this.userInfo.solarModule.price === 0) return 0;
-      return ((this.userInfo.solarModule.price - this.userInfo.solarModule.statehelp) / this.getProfit).toFixed(2);
+    rentable() {
+      if (this.userInfo == null) return 0
+      if (this.userInfo.solarModule.price === 0) return 0
+      return (
+        (this.userInfo.solarModule.price -
+          this.userInfo.solarModule.statehelp) /
+        this.getProfit
+      ).toFixed(2)
     },
   },
 
@@ -203,7 +218,7 @@ export default {
       this.requestBack()
       //this.saveStore();
     },
-    changeAutoConso(){
+    changeAutoConso() {
       this.$store.commit('setAutoConsommation', this.autoconsommation)
     },
     saveStore() {
@@ -232,12 +247,14 @@ export default {
       this.$router.push('/')
     } else {
       process.nextTick(() => {
-        if (this.userInfo.solarModule.sellAll) this.bus.$emit('setCheckBox0', true)
-        else this.bus.$emit('setCheckBox1', true);
-        if (this.userInfo.solarModule.integration) this.bus.$emit('setCheckBox2', true)
-        else this.bus.$emit('setCheckBox3', true);
-      });
-      this.autoconsommation = this.userInfo.solarModule.autoconsommation;
+        if (this.userInfo.solarModule.sellAll)
+          this.bus.$emit('setCheckBox0', true)
+        else this.bus.$emit('setCheckBox1', true)
+        if (this.userInfo.solarModule.integration)
+          this.bus.$emit('setCheckBox2', true)
+        else this.bus.$emit('setCheckBox3', true)
+      })
+      this.autoconsommation = this.userInfo.solarModule.autoconsommation
     }
   },
 }
