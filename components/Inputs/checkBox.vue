@@ -3,7 +3,7 @@
     <input class="h-6 w-6 mr-3" type="checkbox" v-model="value" />
     <label :class="value ? 'checked' : ''"> {{ text }}</label>
   </div>
-</template> 
+</template>
 
 <style scoped>
 label {
@@ -49,8 +49,8 @@ export default {
   },
 
   mounted() {
-    this.value = this.valueInit
-    if (this.id == undefined) this.bus.$on('setCheckBox', this.setValue)
+    //this.value = this.valueInit
+    if (this.id === undefined) this.bus.$on('setCheckBox', this.setValue)
     else this.bus.$on('setCheckBox' + this.id, this.setValue)
   },
 }

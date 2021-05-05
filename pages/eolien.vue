@@ -104,29 +104,17 @@
         BILAN INSTALLATION EOLIENNE :
       </p>
       <p>
-        pose : {{ userInfo.eolien.pose }}
-      </p>
-      <p>
         type : {{ userInfo.eolien.type }}
-      </p>
-      <p>
-        Cout achat : XXX €
-      </p>
-      <p>
-        Cout installation : XXX €
       </p>
       <p>
         Cout total : XXX €
       </p>
       <br>
       <p>
-        Puissance nominale éolienne : XXX kW
+        Production électrique /an : XXX kWh
       </p>
       <p>
-        Gain energie/an : XXX kWh
-      </p>
-      <p>
-        Gain revente totale : XXX kW
+        Gain revente totale /an : XXX
       </p>
       <p>
         Amortissement finançier après XX ans
@@ -169,7 +157,8 @@ export default {
       this.state = 1;
     },
     passeInfo(){
-      this.nextQuestion();
+      this.state = 3;
+      this.indexQuestion = 1;
     },
     choice1(choice){
       this.userInfo.eolien.pose = choice;

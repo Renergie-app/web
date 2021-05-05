@@ -21,6 +21,7 @@
     "prod" : 0,
     "statehelp" : 0,
     "price" : 0,
+    "autoconsommation" : 50,
     "faces": [
       {
         "pose" : true,

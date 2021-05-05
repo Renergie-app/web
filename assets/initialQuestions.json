@@ -17,12 +17,12 @@
     "rules": [{"name" : "Postal", "externalData" : "none"}]
   },
   {
-    "question" : "Quel est la surface habitable de votre logement ?",
+    "question" : "Quel est la surface habitable de votre logement ? (m²)",
     "type": "inputText",
     "rules": [{"name" : "Number", "externalData" : "none"}, {"name" : "Notnull", "externalData" : "none"}]
   },
   {
-    "question" : "Quel est votre consommation électrique annuelle ?",
+    "question" : "Quel est le montant de votre facture électrique annuelle ? (€)",
     "type": "inputText",
     "rules": [{"name" : "Number", "externalData" : "none"}, {"name" : "Notnull", "externalData" : "none"}]
   }

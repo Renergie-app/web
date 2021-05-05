@@ -1,5 +1,5 @@
 <template>
-  <div class="outer p-5 rounded-3xl h-60 sticky font-light shadow-2xl">
+  <div class="outer p-5 rounded-3xl h-100 sticky font-light shadow-2xl">
     <slot />
   </div>
 </template>

@@ -14,6 +14,11 @@ export const mutations = {
       state.userInfo.solarModule.sellAll = data;
     }
   },
+  setAutoConsommation(state, data){
+    if(data !== undefined){
+      state.userInfo.solarModule.autoconsommation = data;
+    }
+  },
   setIntegrationSolar(state, data){
     if(data !== undefined){
       state.userInfo.solarModule.integration = data;
@@ -31,7 +36,6 @@ export const mutations = {
   },
   setSolarModule(state, data) {
     if(data===null) return
-    console.log(data);
     if(data.stateFinancialHelp !== undefined) state.userInfo.solarModule.statehelp = data.stateFinancialHelp;
     if(data.totalAmountOfSolarPanels !== undefined) state.userInfo.solarModule.nbPanel = data.totalAmountOfSolarPanels;
     if(data.totalCost !== undefined) state.userInfo.solarModule.price = data.totalCost;
@@ -62,7 +66,7 @@ export const getters = {
   getFaceinfoRequest(state){
     let listFinal = [];
     state.userInfo.solarModule.faces.forEach((f) => {
-      listFinal.push({surface : f.area.toFixed(2), angle: f.angle, orientation: f.orientationRequest});
+      if(f.pose) listFinal.push({surface : f.area.toFixed(2), angle: f.angle, orientation: f.orientationRequest});
     });
     return listFinal;
   }
