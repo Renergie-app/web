@@ -4,6 +4,7 @@
       v-if="state === -1"
       class="flex flex-col justify-center items-center m-5 mt-20 mb-20"
     >
+      <logo />
       <info-box>
         Votre logement ne remplis pas les conditions pour nécessaires pour la
         pose d'éoliennes. Il n'existe aucune installation d'éolienne pour les
@@ -30,15 +31,22 @@
         </svg>
       </single-button>
       <info-box>
-        Avant de commencer la simulation pour poser des éoliennes, vous devez
-        savoir quelques informations : <br />
-        <br />
-
-        • Il est impératif qu'il y ait suffisament de vents où se trouve votre
-        logement pour le bon fonctionnement de l'éolienne. <br />
-        • Veiller à qu'il n'y ait pas d'obstacles autour du logement qui
-        pourrait couper le vent.<br />
-        • L'éolien est un aménagement coûteux. Compter au minimum pour 15 000 €.
+        <p>
+          Avant de commencer la simulation pour poser des éoliennes, vous devez
+          savoir quelques informations :
+        </p>
+        <p>
+          • Il est impératif qu'il y ait suffisament de vents où se trouve votre
+          logement pour le bon fonctionnement de l'éolienne.
+        </p>
+        <p>
+          • Veiller à qu'il n'y ait pas d'obstacles autour du logement qui
+          pourrait couper le vent.
+        </p>
+        <p>
+          • L'éolien est un aménagement coûteux. Compter au minimum pour 15 000
+          €.
+        </p>
       </info-box>
 
       <button-image @click="passeInfo" title="Suivant">
@@ -49,71 +57,74 @@
         </svg>
       </button-image>
     </div>
-
-    <question-card
+    <div
       v-if="state === 2 || state === 3"
-      :question="questionList[indexQuestion].question"
+      class="flex flex-col justify-center items-center"
     >
-      <div
-        v-if="questionList[indexQuestion].type === 'buttonChoice'"
-        class="flex flex-col justify-center items-center flex-wrap"
-      >
-        <div v-if="questionList[indexQuestion].numero === 1">
-          <button-image
-            @click="choice1"
-            :title="questionList[indexQuestion].choices[0].text"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 512">
-              <path
-                d="M350.1 480h-48.32l-5-76.66L221 314l-10.78 166H161.9a36.94 36.94 0 0 0-33 20.42A8 8 0 0 0 136 512h240a8 8 0 0 0 7.15-11.58A36.93 36.93 0 0 0 350.1 480zm48.59-54.21l-88.35-182.32a55.73 55.73 0 0 1-.73-42.79l73.28-179.07a15.8 15.8 0 0 0-27.5-15.07L241.27 163.21a55.74 55.74 0 0 1-36.47 22.4L13.32 215.94A15.81 15.81 0 0 0 0 231.89v.23a15.8 15.8 0 0 0 14.1 15.35L203.83 268a55.78 55.78 0 0 1 37.54 20.58l130.31 153.5a15.81 15.81 0 0 0 20.53 3.63l.19-.12a15.79 15.79 0 0 0 6.29-19.8zM256 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"
-              />
-            </svg>
-          </button-image>
-          <button-image
-            @click="choice1"
-            :title="questionList[indexQuestion].choices[1].text"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <path
-                d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
-              />
-            </svg>
-          </button-image>
-        </div>
-
+      <logo />
+      <question-card :question="questionList[indexQuestion].question">
         <div
-          class="flex flex-row justify-center items-center"
-          v-if="questionList[indexQuestion].numero === 2"
+          v-if="questionList[indexQuestion].type === 'buttonChoice'"
+          class="flex flex-col justify-center items-center flex-wrap"
         >
-          <button-image
-            @click="choice2"
-            :title="questionList[indexQuestion].choices[0].text"
+          <div v-if="questionList[indexQuestion].numero === 1">
+            <button-image
+              @click="choice1"
+              :title="questionList[indexQuestion].choices[0].text"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 512">
+                <path
+                  d="M350.1 480h-48.32l-5-76.66L221 314l-10.78 166H161.9a36.94 36.94 0 0 0-33 20.42A8 8 0 0 0 136 512h240a8 8 0 0 0 7.15-11.58A36.93 36.93 0 0 0 350.1 480zm48.59-54.21l-88.35-182.32a55.73 55.73 0 0 1-.73-42.79l73.28-179.07a15.8 15.8 0 0 0-27.5-15.07L241.27 163.21a55.74 55.74 0 0 1-36.47 22.4L13.32 215.94A15.81 15.81 0 0 0 0 231.89v.23a15.8 15.8 0 0 0 14.1 15.35L203.83 268a55.78 55.78 0 0 1 37.54 20.58l130.31 153.5a15.81 15.81 0 0 0 20.53 3.63l.19-.12a15.79 15.79 0 0 0 6.29-19.8zM256 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"
+                />
+              </svg>
+            </button-image>
+            <button-image
+              @click="choice1"
+              :title="questionList[indexQuestion].choices[1].text"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </button-image>
+          </div>
+
+          <div
+            class="flex flex-row justify-center items-center"
+            v-if="questionList[indexQuestion].numero === 2"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 512">
-              <path
-                d="M350.1 480h-48.32l-5-76.66L221 314l-10.78 166H161.9a36.94 36.94 0 0 0-33 20.42A8 8 0 0 0 136 512h240a8 8 0 0 0 7.15-11.58A36.93 36.93 0 0 0 350.1 480zm48.59-54.21l-88.35-182.32a55.73 55.73 0 0 1-.73-42.79l73.28-179.07a15.8 15.8 0 0 0-27.5-15.07L241.27 163.21a55.74 55.74 0 0 1-36.47 22.4L13.32 215.94A15.81 15.81 0 0 0 0 231.89v.23a15.8 15.8 0 0 0 14.1 15.35L203.83 268a55.78 55.78 0 0 1 37.54 20.58l130.31 153.5a15.81 15.81 0 0 0 20.53 3.63l.19-.12a15.79 15.79 0 0 0 6.29-19.8zM256 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"
-              />
-            </svg>
-          </button-image>
-          <button-image
-            @click="choice2"
-            :title="questionList[indexQuestion].choices[1].text"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <path
-                d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
-              />
-            </svg>
-          </button-image>
+            <button-image
+              @click="choice2"
+              :title="questionList[indexQuestion].choices[0].text"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 512">
+                <path
+                  d="M350.1 480h-48.32l-5-76.66L221 314l-10.78 166H161.9a36.94 36.94 0 0 0-33 20.42A8 8 0 0 0 136 512h240a8 8 0 0 0 7.15-11.58A36.93 36.93 0 0 0 350.1 480zm48.59-54.21l-88.35-182.32a55.73 55.73 0 0 1-.73-42.79l73.28-179.07a15.8 15.8 0 0 0-27.5-15.07L241.27 163.21a55.74 55.74 0 0 1-36.47 22.4L13.32 215.94A15.81 15.81 0 0 0 0 231.89v.23a15.8 15.8 0 0 0 14.1 15.35L203.83 268a55.78 55.78 0 0 1 37.54 20.58l130.31 153.5a15.81 15.81 0 0 0 20.53 3.63l.19-.12a15.79 15.79 0 0 0 6.29-19.8zM256 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"
+                />
+              </svg>
+            </button-image>
+            <button-image
+              @click="choice2"
+              :title="questionList[indexQuestion].choices[1].text"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
+                />
+              </svg>
+            </button-image>
+          </div>
+          <info-box>
+            Il faut savoir qu'une éolienne horizontale a un rendement électrique
+            plus élevé et est généralement moins cher. En contrepartie,
+            l'éolienne verticale est plus silencieuse et peut être plus
+            versatile grâce à son fonctionnement avec des vents fort ainsi que
+            faibles.
+          </info-box>
         </div>
-        <info-box>
-          Il faut savoir qu'une éolienne horizontale a un rendement électrique
-          plus élevé et est généralement moins cher. En contrepartie, l'éolienne
-          verticale est plus silencieuse et peut être plus versatile grâce à son
-          fonctionnement avec des vents fort ainsi que faibles.
-        </info-box>
-      </div>
-    </question-card>
+      </question-card>
+    </div>
 
     <div v-if="state === 4" class="flex flex-col justify-center items-center">
       <logo />
@@ -125,8 +136,11 @@
         </svg>
       </single-button>
       <bilan-panel class="m-10">
+        <h2>
+          Type : <b>{{ userInfo.eolien.type }}</b>
+        </h2>
         <h2 class="select-none">
-          Amount :
+          Nombre :
           <b>
             <span
               class="bg-white p-1 text-black font-mono opacity-25 rounded-2xl"
@@ -154,21 +168,18 @@
           v-model="autoconsommation"
           @input="changeAutoConso"
         />
-        <h2>
-          type : <b>{{ userInfo.eolien.type }}</b>
-        </h2>
-        <br />
+
         <h1>Bilan énergétique</h1>
         <h3>
           Production électrique :
           <b>{{ userInfo.eolien.result.powerOutputKWH }} kWh / an</b>
         </h3>
-        <br />
+
         <h1>Bilan financier</h1>
         <h3>
           Cout total : <b> {{ userInfo.eolien.result.cost }} €</b>
         </h3>
-        <br />
+
         <h1>Rentabilité</h1>
         <h3>
           Revenu Annuel Estimé : <b> {{ getGainAll }} € </b>
