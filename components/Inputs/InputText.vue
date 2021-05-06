@@ -1,17 +1,42 @@
 <template>
-  <input
-    class="font-semibold p-4 mr-5 text-lg"
-    type="text"
-    :placeholder="placeholder"
-    @change="commit"
-    @input="change"
-    v-model="text"
-    :style="{ color: colorText }"
-  />
+  <div v-if="title != null" class="relative m-2 pt-4">
+    <h1
+      v-if="title != null"
+      class="absolute z-10 text-base top-1 left-4 p-1 pl-3 pr-3 rounded-full truncate pointer-events-none"
+    >
+      {{ title }}
+    </h1>
+    <input
+      class="font-semibold p-4 mr-5 text-lg"
+      type="text"
+      :placeholder="placeholder"
+      @change="commit"
+      @input="change"
+      v-model="text"
+      :style="{ color: colorText }"
+    />
+  </div>
+  <div v-else class="m-5">
+    <input
+      class="font-semibold p-4 mr-5 text-lg"
+      type="text"
+      :placeholder="placeholder"
+      @change="commit"
+      @input="change"
+      v-model="text"
+      :style="{ color: colorText }"
+    />
+  </div>
 </template>
 
 <style scoped>
+h1 {
+  background-color: var(--bg-sec);
+  color: var(--text-sec);
+}
 input {
+  width: 100%;
+  overflow: hidden;
   border-radius: 20px;
   background-color: var(--bg-sec);
   transition: all 0.05s;
@@ -27,7 +52,7 @@ input:focus {
 export default {
   name: 'InputText',
 
-  props: ['rules', 'bus', 'id', 'placeholder'],
+  props: ['rules', 'bus', 'id', 'placeholder', 'title'],
 
   data: () => ({
     text: '',
@@ -92,6 +117,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>
