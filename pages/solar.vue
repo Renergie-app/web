@@ -62,17 +62,17 @@
             </div>
           </div>
         </div>
-        <face-selector
-          v-if="userInfo != null"
-          :solarfaces="userInfo.solarModule.faces"
-        ></face-selector>
-        <face-module
-          v-if="userInfo != null"
-          v-for="(face, index) in correctFaces"
-          :key="index"
-          :face="face"
-          @change="requestBack"
-        ></face-module>
+        <div v-if="userInfo != null">
+          <face-selector
+            :solarfaces="userInfo.solarModule.faces"
+          ></face-selector>
+          <face-module
+            v-for="(face, index) in correctFaces"
+            :key="index"
+            :face="face"
+            @change="requestBack"
+          ></face-module>
+        </div>
       </div>
       <bilan-panel class="m-10">
         <h1>Bilan énergétique</h1>
