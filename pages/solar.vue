@@ -8,53 +8,59 @@
         />
       </svg>
     </single-button>
-    <div class="flex flex-row mb-10">
-      <div class="m-10">
+    <div class="card-container flex flex-row mb-10">
+      <div class="m-10 flex flex-col p-5 rounded-3xl bg-white shadow-2x">
         <h1>Ajouts de panneaux photovoltaïques :</h1>
-        <h2>Projet de production éléctrique :</h2>
-        <div class="flex flex-col items-start ml-6">
-          <check-box
-            text="Vente Totale"
-            :bus="bus"
-            id="0"
-            @change="changeSellAll"
-          >
-          </check-box>
-          <check-box
-            text="AutoConsommation et vente surplus"
-            :bus="bus"
-            id="1"
-            @change="changeAutoC"
-          >
-          </check-box>
-          <p>Part d'autoconsomation : {{ autoconsommation }} %</p>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            class="ml-10"
-            :disabled="userInfo.solarModule.sellAll"
-            v-model="autoconsommation"
-            @input="changeAutoConso"
-          />
-        </div>
-        <h2>Mode de pose :</h2>
-        <div class="flex flex-col items-start ml-6">
-          <check-box
-            text="Intégration (Remplace la toiture)"
-            :bus="bus"
-            id="2"
-            @change="changeIntegration"
-          >
-          </check-box>
-          <check-box
-            text="Surimposition (Par dessus la toiture)"
-            :bus="bus"
-            id="3"
-            @change="changeSurimposition"
-          >
-          </check-box>
+        <div class="flex flex-row">
+          <div>
+            <h2>Projet de production éléctrique :</h2>
+            <div class="flex flex-col items-start ml-6">
+              <check-box
+                text="Vente totale"
+                :bus="bus"
+                id="0"
+                @change="changeSellAll"
+              >
+              </check-box>
+              <check-box
+                text="AutoConsommation et vente surplus"
+                :bus="bus"
+                id="1"
+                @change="changeAutoC"
+              >
+              </check-box>
+              <p>Part d'autoconsomation : {{ autoconsommation }} %</p>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                class="ml-10"
+                :disabled="userInfo.solarModule.sellAll"
+                v-model="autoconsommation"
+                @input="changeAutoConso"
+              />
+            </div>
+          </div>
+          <div>
+            <h2>Mode de pose :</h2>
+            <div class="flex flex-col items-start ml-6">
+              <check-box
+                text="Intégration (Remplace la toiture)"
+                :bus="bus"
+                id="2"
+                @change="changeIntegration"
+              >
+              </check-box>
+              <check-box
+                text="Surimposition (Par dessus la toiture)"
+                :bus="bus"
+                id="3"
+                @change="changeSurimposition"
+              >
+              </check-box>
+            </div>
+          </div>
         </div>
         <face-selector
           v-if="userInfo != null"
@@ -69,7 +75,7 @@
         ></face-module>
       </div>
       <bilan-panel class="m-10">
-        <h1>Bilan avec ajouts</h1>
+        <h1>Bilan énergétique</h1>
         <h2>
           Nombre de panneaux solaires installés :
           <b>
@@ -80,25 +86,30 @@
           Production électrique total :
           <b>{{ Math.trunc(userInfo.solarModule.prod) }} kWh / an</b>
         </h2>
-        <h2>Bilan finançier :</h2>
+        <br />
+        <h1>Bilan finançier</h1>
         <h3>
-          Coût de l'aménagement : <b>{{ Math.trunc(userInfo.solarModule.price) }} € </b>
+          Coût de l'aménagement :
+          <b>{{ Math.trunc(userInfo.solarModule.price) }} € </b>
         </h3>
         <h3>
-          Aide de l'état : <b>{{ Math.trunc(userInfo.solarModule.statehelp) }} € </b>
+          Aide de l'état :
+          <b>{{ Math.trunc(userInfo.solarModule.statehelp) }} € </b>
         </h3>
-        <h3>-------------------------------------------------------</h3>
+        <div class="break" />
         <h3>
           Coût total :
           <b>
             {{
-              Math.trunc(userInfo.solarModule.price - userInfo.solarModule.statehelp)
+              Math.trunc(
+                userInfo.solarModule.price - userInfo.solarModule.statehelp
+              )
             }}
             €</b
           >
         </h3>
-        <h3>-------------------------------------------------------</h3>
-        <h2>Rentabilité :</h2>
+        <br />
+        <h1>Rentabilité</h1>
         <h3>
           Revenu Annuel Estimé : <b>{{ getGainAll }} € / an </b>
         </h3>
@@ -106,11 +117,10 @@
           Economie Annuelle sur la facture :
           <b>{{ getEconomieFacture }} € / an </b>
         </h3>
-        <h3>-------------------------------------------------------</h3>
+        <div class="break" />
         <h3>
           Profit Totale : <b>{{ getProfit }} € / an </b>
         </h3>
-        <h3>-------------------------------------------------------</h3>
         <h3>
           Aménagement rentable au bout de : <b>{{ rentable }} ans </b>
         </h3>
@@ -124,6 +134,12 @@ h1 {
   font-size: 1.875rem /* 30px */;
   line-height: 2.25rem /* 36px */;
   margin-bottom: 0.5rem /* 8px */;
+}
+
+@media (max-width: 960px) {
+  .card-container {
+    flex-direction: column;
+  }
 }
 </style>
 
