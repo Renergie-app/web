@@ -19,9 +19,26 @@ export const mutations = {
       state.userInfo.solarModule.autoconsommation = data;
     }
   },
+  setAutoConsommationEolien(state, data){
+    if(data !== undefined){
+      state.userInfo.eolien.autoconsommation = data;
+    }
+  },
   setIntegrationSolar(state, data){
     if(data !== undefined){
       state.userInfo.solarModule.integration = data;
+    }
+  },
+  setAmountEolien(state, data){
+    if(data !== undefined){
+      state.userInfo.eolien.amount = data;
+    }
+  },
+  setDataEolien(state, data){
+    if(data !== undefined){
+      state.userInfo.eolien.result.cost = data.windTurbine.cost;
+      state.userInfo.eolien.result.powerOutputKWH = data.windTurbine.powerOutputKWH;
+      state.userInfo.eolien.result.profit = data.windTurbine.profit;
     }
   },
   setFaceAngle(state, data) {

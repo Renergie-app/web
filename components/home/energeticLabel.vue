@@ -53,8 +53,7 @@
         />
       </svg>
       <p class="note text-sm mt-3 opacity-60">
-        Votre étiquette est calculée à l'aide d'un calcul théorique de votre
-        consommation kWhep
+        Votre étiquette est calculée à partir de votre consommation électrique en fonction de la surface habitable.
       </p>
     </div>
   </div>
@@ -73,7 +72,7 @@ export default {
 
   computed: {
     value() {
-      return (this.elecConsumption * 2.58) / this.homeArea
+      return (this.elecConsumption) / this.homeArea
     },
   },
 

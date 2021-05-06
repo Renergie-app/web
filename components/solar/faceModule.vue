@@ -26,9 +26,9 @@
     <p>
       Production éléctrique : <span>{{ face.prod }} kWh </span>
     </p>
-    <p>
+    <!--<p>
       Gain en argent : <span>{{ face.gain }} € / an</span>
-    </p>
+    </p>-->
     <p>
       Coût : <span>{{ face.price }} €</span>
     </p>

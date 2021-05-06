@@ -135,6 +135,13 @@
   },
   "eolien" : {
     "pose" : "",
-    "type" : ""
+    "type" : "",
+    "amount" : 1,
+    "autoconsommation" : 20,
+    "result" : {
+      "cost" : 0,
+      "powerOutputKWH" : 0,
+      "profit" : 0
+    }
   }
 }

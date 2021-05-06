@@ -34,6 +34,7 @@
             max="100"
             value="50"
             class="ml-10"
+            :disabled="userInfo.solarModule.sellAll"
             v-model="autoconsommation"
             @input="changeAutoConso"
           />
@@ -77,21 +78,21 @@
         </h2>
         <h2>
           Production électrique total :
-          <b>{{ userInfo.solarModule.prod }} kWh / an</b>
+          <b>{{ Math.trunc(userInfo.solarModule.prod) }} kWh / an</b>
         </h2>
         <h2>Bilan finançier :</h2>
         <h3>
-          Coût de l'aménagement : <b>{{ userInfo.solarModule.price }} € </b>
+          Coût de l'aménagement : <b>{{ Math.trunc(userInfo.solarModule.price) }} € </b>
         </h3>
         <h3>
-          Aide de l'état : <b>{{ userInfo.solarModule.statehelp }} € </b>
+          Aide de l'état : <b>{{ Math.trunc(userInfo.solarModule.statehelp) }} € </b>
         </h3>
         <h3>-------------------------------------------------------</h3>
         <h3>
           Coût total :
           <b>
             {{
-              userInfo.solarModule.price - userInfo.solarModule.statehelp
+              Math.trunc(userInfo.solarModule.price - userInfo.solarModule.statehelp)
             }}
             €</b
           >
