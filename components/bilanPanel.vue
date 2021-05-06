@@ -17,7 +17,8 @@ h1 {
   font-weight: 700;
   font-size: 1.875rem /* 30px */;
   line-height: 2.25rem /* 36px */;
-  margin-bottom: 0.5rem /* 8px */;
+  margin-bottom: 0.3rem /* 8px */;
+  margin-top: 1.2rem /* 8px */;
 }
 b {
   font-size: 1.3rem;
