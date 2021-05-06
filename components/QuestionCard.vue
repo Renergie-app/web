@@ -1,9 +1,9 @@
 <template>
-  <div class="flex-col outer m-10 shadow-2xl mb-20">
-    <div class="question text-xl font-bold m-7 mb-5">
+  <div class="flex-col outer m-5 mt-10 mb-20 max-w-lg shadow-2xl">
+    <div class="question text-xl font-bold m-7 mb-0">
       {{ question }}
     </div>
-    <div class="m-5 flex justify-center">
+    <div class="flex justify-center">
       <slot />
     </div>
   </div>
@@ -11,6 +11,7 @@
 <style scoped>
 .outer {
   flex-grow: 0;
+  flex-shrink: 1;
   border-radius: 40px;
   background-color: var(--bg-card);
 }
