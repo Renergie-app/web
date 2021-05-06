@@ -23,6 +23,13 @@ b {
   font-size: 1.3rem;
   font-weight: 600;
 }
+
+.break {
+  margin: 5px;
+  margin-left: 2rem;
+  height: 1px;
+  background-color: white;
+}
 </style>>
 
 <script>
