@@ -76,17 +76,17 @@
       </div>
       <bilan-panel class="m-10">
         <h1>Bilan énergétique</h1>
-        <h2>
-          Nombre de panneaux solaires installés :
+        <h3>
+          Nombre de panneaux solaires :
           <b>
             {{ userInfo.solarModule.nbPanel }}
           </b>
-        </h2>
-        <h2>
+        </h3>
+        <h3>
           Production électrique total :
           <b>{{ Math.trunc(userInfo.solarModule.prod) }} kWh / an</b>
-        </h2>
-        <br />
+        </h3>
+
         <h1>Bilan finançier</h1>
         <h3>
           Coût de l'aménagement :
@@ -108,7 +108,7 @@
             €</b
           >
         </h3>
-        <br />
+
         <h1>Rentabilité</h1>
         <h3>
           Revenu Annuel Estimé : <b>{{ getGainAll }} € / an </b>
