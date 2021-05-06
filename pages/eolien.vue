@@ -1,10 +1,14 @@
 <template>
   <page-container>
-    <div v-if="state === -1">
-      <h2>
+    <div
+      v-if="state === -1"
+      class="flex flex-col justify-center items-center m-5 mt-20 mb-20"
+    >
+      <info-box>
         Votre logement ne remplis pas les conditions pour nécessaires pour la
-        pose d'éoliennes.
-      </h2>
+        pose d'éoliennes. Il n'existe aucune installation d'éolienne pour les
+        appartements.
+      </info-box>
       <single-button @clicked="returnpage">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path
@@ -16,7 +20,7 @@
 
     <div
       v-if="state === 1"
-      class="flex flex-col justify-center items-center m-20"
+      class="flex flex-col justify-center items-center m-5 mt-20 mb-20"
     >
       <single-button @clicked="returnpage">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -121,11 +125,26 @@
         </svg>
       </single-button>
       <bilan-panel class="m-10">
-        <h1>Bilan d'installation éolienne :</h1>
-        <button @click="reduceAmount"> - </button>
-        <p>Amount : {{ userInfo.eolien.amount }} </p>
-        <button @click="addAmount"> + </button>
-        <p>Part d'autoconsomation : {{ autoconsommation }} %</p>
+        <h2 class="select-none">
+          Amount :
+          <b>
+            <span
+              class="bg-white p-1 text-black font-mono opacity-25 rounded-2xl"
+              @click="reduceAmount"
+              >-</span
+            >
+            {{ userInfo.eolien.amount }}
+            <span
+              class="bg-white p-1 text-black font-mono opacity-25 rounded-2xl"
+              @click="addAmount"
+              >+</span
+            >
+          </b>
+        </h2>
+
+        <h2>
+          Part d'autoconsomation : <b>{{ autoconsommation }} % </b>
+        </h2>
         <input
           type="range"
           min="0"
@@ -138,16 +157,32 @@
         <h2>
           type : <b>{{ userInfo.eolien.type }}</b>
         </h2>
-        <h2>Cout total : <b> {{userInfo.eolien.result.cost}} €</b></h2>
         <br />
-        <h2>Production électrique : <b>{{ userInfo.eolien.result.powerOutputKWH }} kWh / an</b></h2>
-        <h3>-------------------------------------------------------</h3>
-        <h2>Revenu Annuel Estimé : <b> {{ getGainAll }} € </b></h2>
-        <h2>Economie Annuelle sur la facture : <b> {{ getEconomieFacture }} €</b></h2>
-        <h3>-------------------------------------------------------</h3>
-        <h2>Profit Total Annuel : <b> {{ getProfit }} €</b></h2>
-        <h3>-------------------------------------------------------</h3>
-        <h2>Amortissement finançier après <b> {{ rentable }} ans</b></h2>
+        <h1>Bilan énergétique</h1>
+        <h3>
+          Production électrique :
+          <b>{{ userInfo.eolien.result.powerOutputKWH }} kWh / an</b>
+        </h3>
+        <br />
+        <h1>Bilan financier</h1>
+        <h3>
+          Cout total : <b> {{ userInfo.eolien.result.cost }} €</b>
+        </h3>
+        <br />
+        <h1>Rentabilité</h1>
+        <h3>
+          Revenu Annuel Estimé : <b> {{ getGainAll }} € </b>
+        </h3>
+        <h3>
+          Economie Annuelle sur la facture : <b> {{ getEconomieFacture }} €</b>
+        </h3>
+        <div class="break" />
+        <h3>
+          Profit Total Annuel : <b> {{ getProfit }} €</b>
+        </h3>
+        <h3>
+          Amortissement finançier après <b> {{ rentable }} ans</b>
+        </h3>
       </bilan-panel>
       <single-button
         text="Changer mes informations"
@@ -164,21 +199,27 @@ import questions from 'assets/eolienQuestions.json'
 import infoBox from '../components/home/infoBox.vue'
 import BilanPanel from '../components/bilanPanel.vue'
 import Logo from '../components/Logo.vue'
-import WindPanelRequest from "../graphQL/windturbine.graphql";
+import WindPanelRequest from '../graphQL/windturbine.graphql'
 
 export default {
   components: { infoBox, BilanPanel, Logo },
   name: 'eolien',
 
-  computed:{
+  computed: {
     getGainAll() {
       if (this.userInfo == null) return 0
-      var conso = this.userInfo.eolien.autoconsommation;
-      return Math.trunc((this.userInfo.eolien.result.profit * (100 - conso)) / 100)
+      var conso = this.userInfo.eolien.autoconsommation
+      return Math.trunc(
+        (this.userInfo.eolien.result.profit * (100 - conso)) / 100
+      )
     },
     getEconomieFacture() {
       if (this.userInfo == null) return 0
-      return Math.trunc(((this.userInfo.eolien.result.powerOutputKWH * this.autoconsommation) / 100) * 0.1765)
+      return Math.trunc(
+        ((this.userInfo.eolien.result.powerOutputKWH * this.autoconsommation) /
+          100) *
+          0.1765
+      )
     },
     getProfit() {
       return this.getEconomieFacture + this.getGainAll
@@ -186,34 +227,42 @@ export default {
     rentable() {
       if (this.userInfo == null) return 0
       if (this.userInfo.eolien.result.powerOutputKWH === 0) return 0
-      return ((this.userInfo.eolien.result.cost) / this.getProfit).toFixed(2)
+      return (this.userInfo.eolien.result.cost / this.getProfit).toFixed(2)
     },
   },
-
 
   data: () => ({
     state: 1,
     userInfo: null,
     indexQuestion: -1,
     questionList: questions,
-    autoconsommation : 20,
-    amount : 1,
+    autoconsommation: 20,
+    amount: 1,
   }),
 
   methods: {
-    reduceAmount(){
-      this.$store.commit('setAmountEolien', Math.max(0,(this.userInfo.eolien.amount-1)));
-      this.userInfo.eolien.amount = JSON.parse(JSON.stringify(this.$store.getters['getUserInfo'])).eolien.amount;
-      this.requestBack();
+    reduceAmount() {
+      this.$store.commit(
+        'setAmountEolien',
+        Math.max(0, this.userInfo.eolien.amount - 1)
+      )
+      this.userInfo.eolien.amount = JSON.parse(
+        JSON.stringify(this.$store.getters['getUserInfo'])
+      ).eolien.amount
+      this.requestBack()
     },
-    addAmount(){
-      this.$store.commit('setAmountEolien', (this.userInfo.eolien.amount+1));
-      this.userInfo.eolien.amount = JSON.parse(JSON.stringify(this.$store.getters['getUserInfo'])).eolien.amount;
-      this.requestBack();
+    addAmount() {
+      this.$store.commit('setAmountEolien', this.userInfo.eolien.amount + 1)
+      this.userInfo.eolien.amount = JSON.parse(
+        JSON.stringify(this.$store.getters['getUserInfo'])
+      ).eolien.amount
+      this.requestBack()
     },
-    changeAutoConso(){
-      this.$store.commit('setAutoConsommationEolien', this.autoconsommation);
-      this.userInfo.eolien.autoconsommation = JSON.parse(JSON.stringify(this.$store.getters['getUserInfo'])).eolien.autoconsommation;
+    changeAutoConso() {
+      this.$store.commit('setAutoConsommationEolien', this.autoconsommation)
+      this.userInfo.eolien.autoconsommation = JSON.parse(
+        JSON.stringify(this.$store.getters['getUserInfo'])
+      ).eolien.autoconsommation
     },
     reset() {
       this.userInfo.eolien.type = ''
@@ -245,40 +294,46 @@ export default {
     },
     nextQuestion() {
       if (this.indexQuestion + 1 >= this.questionList.length) {
-        this.endQuestion();
+        this.endQuestion()
         return
       }
       this.indexQuestion++
       this.state++
     },
     endQuestion() {
-      this.state++;
-      this.requestBack();
+      this.state++
+      this.requestBack()
     },
-    async requestBack(){
-      const {data} = await this.$apollo.query({
+    async requestBack() {
+      const { data } = await this.$apollo.query({
         query: WindPanelRequest,
         variables: {
           amount: this.userInfo.eolien.amount,
-          type: (this.userInfo.eolien.type === "Eolienne Horizontale".toLowerCase() ? 'HORIZONTAL' : 'VERTICAL'),
+          type:
+            this.userInfo.eolien.type === 'Eolienne Horizontale'.toLowerCase()
+              ? 'HORIZONTAL'
+              : 'VERTICAL',
           zip: this.userInfo.postalCode.value,
         },
-      });
-      this.$store.commit('setDataEolien', data);
-      this.userInfo.eolien.result = JSON.parse(JSON.stringify(this.$store.getters['getUserInfo'])).eolien.result;
+      })
+      this.$store.commit('setDataEolien', data)
+      this.userInfo.eolien.result = JSON.parse(
+        JSON.stringify(this.$store.getters['getUserInfo'])
+      ).eolien.result
     },
   },
 
   mounted() {
-    this.userInfo = JSON.parse(JSON.stringify(this.$store.getters['getUserInfo']));
+    this.userInfo = JSON.parse(
+      JSON.stringify(this.$store.getters['getUserInfo'])
+    )
     if (this.userInfo.homeType.value === 'None') this.$router.push('/')
     if (this.userInfo.homeType.value === 'appartement') this.state = -1
-    if (this.userInfo.eolien.type !== '')
-      this.state = 4;
-    console.log(this.userInfo);
-      this.autoconsommation = this.userInfo.eolien.autoconsommation;
-      this.amount = this.userInfo.eolien.amount;
-    this.requestBack();
+    if (this.userInfo.eolien.type !== '') this.state = 4
+    console.log(this.userInfo)
+    this.autoconsommation = this.userInfo.eolien.autoconsommation
+    this.amount = this.userInfo.eolien.amount
+    this.requestBack()
   },
 }
 </script>
