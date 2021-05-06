@@ -1,21 +1,20 @@
 <template>
   <div class="mt-3 flex flex-col p-5 rounded-3xl bg-white shadow-2xl">
-    <h1>Façade {{ face.orientation }}</h1>
-    <p>Surface de panneaux :</p>
-    <input-text
-      class="mb-5"
-      :bus="bus"
-      id="1"
-      @commit="changeArea"
-      :rules="[{ name: 'Number', externalData: 'none' }]"
-    >
-    </input-text>
-    <div
-      v-if="face !== undefined && face.angle !== 90 && face.angle !== 0"
-      class="mb-5"
-    >
-      <p>Angle :</p>
+    <h1 class="text-2xl text-center font-medium">
+      Façade {{ face.orientation }}
+    </h1>
+    <div class="flex flex-row max-w-lg mb-1">
       <input-text
+        title="Surface"
+        :bus="bus"
+        id="1"
+        @commit="changeArea"
+        :rules="[{ name: 'Number', externalData: 'none' }]"
+      >
+      </input-text>
+      <input-text
+        v-if="face !== undefined && face.angle !== 90 && face.angle !== 0"
+        title="Angle"
         :bus="bus"
         id="2"
         @commit="changeAngle"
@@ -23,18 +22,20 @@
       >
       </input-text>
     </div>
-    <p>
-      Production éléctrique : <span>{{ face.prod }} kWh </span>
-    </p>
-    <!--<p>
+    <div class="font-normal">
+      <p>
+        Production éléctrique : <span>{{ face.prod }} kWh </span>
+      </p>
+      <!--<p>
       Gain en argent : <span>{{ face.gain }} € / an</span>
     </p>-->
-    <p>
-      Coût : <span>{{ face.price }} €</span>
-    </p>
-    <p>
-      Nombre de panneaux : <span>{{ face.nb }}</span>
-    </p>
+      <p>
+        Coût : <span>{{ face.price }} €</span>
+      </p>
+      <p>
+        Nombre de panneaux : <span>{{ face.nb }}</span>
+      </p>
+    </div>
   </div>
 </template>
 
