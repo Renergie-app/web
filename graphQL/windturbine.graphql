@@ -1,0 +1,7 @@
+query windTurbine($amount : Int!, $zip : String!, $type: WindTurbineType!){
+  windTurbine(input: {amount: $amount, postalCode: $zip, type: $type}){
+    cost
+    powerOutputKWH
+    profit
+  }
+}

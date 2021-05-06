@@ -6,15 +6,16 @@ schema {
 
 type FacadeResponse {
   amountOfSolarPanels: Int!
+  angle: Int
   cost: Float!
+  orientation: Orientation
   powerOutputKWH: Float!
   profit: Float!
-  orientation: Orientation!
-  angle: Int!
 }
 
 type Query {
   solarPanel(input: SolarPanelInput): SolarPanelResponse
+  windTurbine(input: WindTurbineInput): WindTurbineResponse
 }
 
 type SolarPanelResponse {
@@ -26,6 +27,12 @@ type SolarPanelResponse {
   totalProfit: Float!
 }
 
+type WindTurbineResponse {
+  cost: Int!
+  powerOutputKWH: Float!
+  profit: Float!
+}
+
 enum Orientation {
   East
   NONE
@@ -33,6 +40,11 @@ enum Orientation {
   SouthEast
   SouthWest
   WEST
+}
+
+enum WindTurbineType {
+  HORIZONTAL
+  VERTICAL
 }
 
 input Facade {
@@ -46,4 +58,10 @@ input SolarPanelInput {
   integratedInBuilding: Boolean!
   postalCode: String!
   sellEverything: Boolean!
+}
+
+input WindTurbineInput {
+  amount: Int!
+  postalCode: String!
+  type: WindTurbineType!
 }
