@@ -48,14 +48,7 @@
           €.
         </p>
       </info-box>
-
-      <button-image @click="passeInfo" title="Suivant">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 512">
-          <path
-            d="M350.1 480h-48.32l-5-76.66L221 314l-10.78 166H161.9a36.94 36.94 0 0 0-33 20.42A8 8 0 0 0 136 512h240a8 8 0 0 0 7.15-11.58A36.93 36.93 0 0 0 350.1 480zm48.59-54.21l-88.35-182.32a55.73 55.73 0 0 1-.73-42.79l73.28-179.07a15.8 15.8 0 0 0-27.5-15.07L241.27 163.21a55.74 55.74 0 0 1-36.47 22.4L13.32 215.94A15.81 15.81 0 0 0 0 231.89v.23a15.8 15.8 0 0 0 14.1 15.35L203.83 268a55.78 55.78 0 0 1 37.54 20.58l130.31 153.5a15.81 15.81 0 0 0 20.53 3.63l.19-.12a15.79 15.79 0 0 0 6.29-19.8zM256 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"
-          />
-        </svg>
-      </button-image>
+      <single-button text="Continuer" @clicked="passeInfo"> </single-button>
     </div>
     <div
       v-if="state === 2 || state === 3"
@@ -171,7 +164,7 @@
           </h2>
           <div style="max-width: 14rem">
             <h2 class="tip">
-              Part d'autoconsomation : <b>{{ autoconsommation }} % </b>
+              Part d'autoconsomation : <b>{{ autoconsommation }}&nbsp;% </b>
               <span class="tip-text">
                 <p>
                   Quand la production d'énergie est trop importante, il devient
@@ -206,7 +199,9 @@
           <h1>Bilan énergétique</h1>
           <h3>
             Production électrique :
-            <b>{{ userInfo.eolien.result.powerOutputKWH }} kWh / an</b>
+            <b
+              >{{ userInfo.eolien.result.powerOutputKWH }} kWh&nbsp;/&nbsp;an</b
+            >
           </h3>
 
           <h1>Bilan financier</h1>
@@ -219,27 +214,28 @@
             >
           </h3>
           <h3>
-            Coût d'installation : <b>{{ userInfo.eolien.amount * 10000 }} €</b>
+            Coût d'installation :
+            <b>{{ userInfo.eolien.amount * 10000 }}&nbsp;€</b>
           </h3>
           <div class="break" />
           <h3>
-            Coût total : <b> {{ userInfo.eolien.result.cost }} €</b>
+            Coût total : <b> {{ userInfo.eolien.result.cost }}&nbsp;€</b>
           </h3>
 
           <h1>Rentabilité</h1>
           <h3>
-            Revenu Annuel Estimé : <b> {{ getGainAll }} € </b>
+            Revenu Annuel Estimé : <b> {{ getGainAll }}&nbsp;€ </b>
           </h3>
           <h3>
             Economie Annuelle sur la facture :
-            <b> {{ getEconomieFacture }} €</b>
+            <b> {{ getEconomieFacture }}&nbsp;€</b>
           </h3>
           <div class="break" />
           <h3>
-            Profit Total Annuel : <b> {{ getProfit }} €</b>
+            Profit Total Annuel : <b> {{ getProfit }}&nbsp;€</b>
           </h3>
           <h3>
-            Amortissement finançier après <b> {{ rentable }} ans</b>
+            Amortissement finançier après <b> {{ rentable }}&nbsp;ans</b>
           </h3>
         </bilan-panel>
       </div>

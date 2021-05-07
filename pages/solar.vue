@@ -76,7 +76,7 @@
           style="max-width: 14rem"
         >
           <p class="tip">
-            Part d'autoconsomation : <b>{{ autoconsommation }} %</b>
+            Part d'autoconsomation : <b>{{ autoconsommation }}&nbsp;%</b>
             <span class="tip-text">
               <p>
                 Quand la production d'énergie est trop importante, il devient
@@ -115,28 +115,28 @@
       <bilan-panel class="m-10">
         <h1>Bilan énergétique</h1>
         <h3>
-          Nombre de panneaux solaires :
+          Nombre de panneaux solaires&nbsp;:
           <b>
             {{ userInfo.solarModule.nbPanel }}
           </b>
         </h3>
         <h3>
-          Production électrique total :
-          <b>{{ Math.trunc(userInfo.solarModule.prod) }} kWh / an</b>
+          Production électrique total&nbsp;:
+          <b>{{ Math.trunc(userInfo.solarModule.prod) }} kWh&nbsp;/&nbsp;an</b>
         </h3>
 
         <h1>Bilan finançier</h1>
         <h3>
           Coût de l'aménagement :
-          <b>{{ Math.trunc(userInfo.solarModule.price) }} € </b>
+          <b>{{ Math.trunc(userInfo.solarModule.price) }}&nbsp;€ </b>
         </h3>
         <h3>
-          Aide de l'état :
-          <b>{{ Math.trunc(userInfo.solarModule.statehelp) }} € </b>
+          Aide de l'état&nbsp;:
+          <b>{{ Math.trunc(userInfo.solarModule.statehelp) }}&nbsp;€ </b>
         </h3>
         <div class="break" />
         <h3>
-          Coût total :
+          Coût total&nbsp;:
           <b>
             {{
               Math.trunc(
@@ -149,18 +149,18 @@
 
         <h1>Rentabilité</h1>
         <h3>
-          Revenu annuel estimé : <b>{{ getGainAll }} € / an </b>
+          Revenu annuel estimé : <b>{{ getGainAll }}&nbsp;€&nbsp;/&nbsp;an </b>
         </h3>
         <h3>
           Economie annuelle sur la facture :
-          <b>{{ getEconomieFacture }} € / an </b>
+          <b>{{ getEconomieFacture }}&nbsp;€&nbsp;/&nbsp;an </b>
         </h3>
         <div class="break" />
         <h3>
-          Profit totale : <b>{{ getProfit }} € / an </b>
+          Profit totale : <b>{{ getProfit }}&nbsp;€&nbsp;/&nbsp;an </b>
         </h3>
         <h3>
-          Aménagement rentable à partir de : <b>{{ rentable }} ans </b>
+          Aménagement rentable à partir de : <b>{{ rentable }}&nbsp;ans </b>
         </h3>
       </bilan-panel>
     </div>
