@@ -21,8 +21,10 @@
             <h2 class="tip">
               Projet de production éléctrique :
               <span class="tip-text">
-                <p>Il est possible de ...</p>
-                <p>TODO</p>
+                <p>
+                  Il est souvent plus rentable de faire de l'autoconsomation et
+                  de la revente du surplus que vendre intégralement
+                </p>
               </span>
             </h2>
             <div class="flex flex-col items-start">
@@ -71,9 +73,21 @@
         <div
           v-if="!this.userInfo.solarModule.sellAll"
           class="max-w-xs pt-4 font-thin"
+          style="max-width: 14rem"
         >
-          <p>
+          <p class="tip">
             Part d'autoconsomation : <b>{{ autoconsommation }} %</b>
+            <span class="tip-text">
+              <p>
+                Quand la production d'énergie est trop importante, il devient
+                impossible de consommer entièrement cette énergie. Il y a alors
+                du gaspillage.
+              </p>
+              <p class="mt-3">
+                C'est pourquoi il est possible de revendre une partie de
+                l'électricité générée à des fournisseurs tels que EDF.
+              </p>
+            </span>
           </p>
           <input
             type="range"
@@ -148,12 +162,6 @@
         <h3>
           Aménagement rentable à partir de : <b>{{ rentable }} ans </b>
         </h3>
-        <div
-          class="flex flex-col justify-center items-center bg-white p-5 mt-5 rounded-xl text-black"
-        >
-          TODO
-          <energetic-label class="" :elecConsumption="200" :homeArea="100" />
-        </div>
       </bilan-panel>
     </div>
   </page-container>

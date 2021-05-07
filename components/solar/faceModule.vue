@@ -23,23 +23,30 @@
       >
       </input-text>
     </div>
-    <div class="font-light">
-      <p class="tip">
-        Nombre de panneaux : <b>{{ face.nb }}</b>
-        <span class="tip-text"
-          >Un panneau couvre environ 2 m². Cette valeur peut varier en fonction
-          des fournisseurs.</span
-        >
-      </p>
-      <p>
-        Production éléctrique : <b>{{ face.prod }} kWh </b>
-      </p>
-      <!--<p>
-      Gain en argent : <b>{{ face.gain }} € / an</b>
-    </p>-->
-      <p>
-        Coût : <b>{{ face.price }} €</b>
-      </p>
+    <div class="flex flex-col font-light">
+      <div>
+        <p class="tip">
+          Nombre de panneaux : <b>{{ face.nb }}</b>
+          <span class="tip-text"
+            >Un panneau couvre environ 2 m². Cette valeur peut varier en
+            fonction des fournisseurs.</span
+          >
+        </p>
+      </div>
+      <div>
+        <p class="tip">
+          Production éléctrique : <b>{{ face.prod }} kWh / an </b>
+          <span class="tip-text">
+            Cette valeur dépend de la surface des panneaux, de l'angle de pose
+            et du taux d'ensoleillement de votre région
+          </span>
+        </p>
+      </div>
+      <div>
+        <p>
+          Coût : <b>{{ face.price }} €</b>
+        </p>
+      </div>
     </div>
   </div>
 </template>

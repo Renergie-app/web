@@ -1,8 +1,12 @@
 <template>
   <div class="w-60">
     <h1 class="tip mb-2">
-      <p class="font-semibold text-xl text-center">Étiquette énergétique</p>
-      <span class="tip-text"> Le label énergétique sert à ... TODO </span>
+      <p class="font-semibold text-xl text-center">Étiquette énergie</p>
+      <span class="tip-text">
+        L’étiquette énergie sert à connaître la consommation d’énergie primaire
+        d'un logement. Avec la classe A pour un logement économe, et G pour un
+        logement énergivore.
+      </span>
     </h1>
     <energetic-bar
       :label="'A'"
@@ -11,11 +15,11 @@
       :color="'#9AE077'"
     >
       <p>
-        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
-        pallier. (TODO)
+        Il faut une consomation éléctrique inférieur à 50 kWh/m² pour atteindre
+        ce pallier.
       </p>
       <p v-if="value > 50" class="mt-6">
-        Il vous faut {{ this.elecConsumption }} kWh en moins.
+        Il vous faut {{ (value - 50) * this.homeArea }} kWh en moins.
       </p>
     </energetic-bar>
     <energetic-bar
@@ -25,11 +29,11 @@
       :color="'#B6E075'"
     >
       <p>
-        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
-        pallier. (TODO)
+        Il faut une consomation éléctrique inférieur à 90 kWh/m² pour atteindre
+        ce pallier.
       </p>
       <p v-if="value > 90" class="mt-6">
-        Il vous faut {{ this.elecConsumption }} kWh en moins.
+        Il vous faut {{ (value - 90) * this.homeArea }} kWh en moins.
       </p>
     </energetic-bar>
     <energetic-bar
@@ -39,11 +43,11 @@
       :color="'#E0DE7B'"
     >
       <p>
-        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
-        pallier. (TODO)
+        Il faut une consomation éléctrique inférieur à 150 kWh/m² pour atteindre
+        ce pallier.
       </p>
       <p v-if="value > 150" class="mt-6">
-        Il vous faut {{ this.elecConsumption }} kWh en moins.
+        Il vous faut {{ (value - 150) * this.homeArea }} kWh en moins.
       </p>
     </energetic-bar>
     <energetic-bar
@@ -53,11 +57,11 @@
       :color="'#E0D07C'"
     >
       <p>
-        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
-        pallier. (TODO)
+        Il faut une consomation éléctrique inférieur à 230 kWh/m² pour atteindre
+        ce pallier.
       </p>
       <p v-if="value > 230" class="mt-6">
-        Il vous faut {{ this.elecConsumption }} kWh en moins.
+        Il vous faut {{ (value - 230) * this.homeArea }} kWh en moins.
       </p>
     </energetic-bar>
     <energetic-bar
@@ -67,11 +71,11 @@
       :color="'#E0BC79'"
     >
       <p>
-        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
-        pallier. (TODO)
+        Il faut une consomation éléctrique inférieur à 330 kWh/m² pour atteindre
+        ce pallier.
       </p>
       <p v-if="value > 330" class="mt-6">
-        Il vous faut {{ this.elecConsumption }} kWh en moins.
+        Il vous faut {{ (value - 330) * this.homeArea }} kWh en moins.
       </p>
     </energetic-bar>
     <energetic-bar
@@ -81,11 +85,11 @@
       :color="'#E0A374'"
     >
       <p>
-        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
-        pallier. (TODO)
+        Il faut une consomation éléctrique inférieur à 450 kWh/m² pour atteindre
+        ce pallier.
       </p>
       <p v-if="value > 450" class="mt-6">
-        Il vous faut {{ this.elecConsumption }} kWh en moins.
+        Il vous faut {{ (value - 450) * this.homeArea }} kWh en moins.
       </p>
     </energetic-bar>
     <energetic-bar
@@ -95,8 +99,8 @@
       :color="'#E08363'"
     >
       <p>
-        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
-        pallier. (TODO)
+        Il faut une consomation éléctrique supérieur à 450 kWh/m² pour atteindre
+        ce pallier.
       </p>
     </energetic-bar>
     <div class="flex flex-row items-center">

@@ -169,9 +169,20 @@
               >
             </b>
           </h2>
-          <div class="max-w-xs">
-            <h2>
+          <div style="max-width: 14rem">
+            <h2 class="tip">
               Part d'autoconsomation : <b>{{ autoconsommation }} % </b>
+              <span class="tip-text">
+                <p>
+                  Quand la production d'énergie est trop importante, il devient
+                  impossible de consommer entièrement cette énergie. Il y a
+                  alors du gaspillage
+                </p>
+                <p class="mt-3">
+                  C'est pourquoi il est possible de revendre une partie de
+                  l'électricité générée à des fournisseurs tels que EDF
+                </p>
+              </span>
             </h2>
             <input
               class="w-full"
@@ -200,8 +211,16 @@
 
           <h1>Bilan financier</h1>
 
-          <h3>Coût du materiel : ??? TODO</h3>
-          <h3>Coût d'installation : ??? TODO</h3>
+          <h3>
+            Coût du materiel :
+            <b>
+              {{ userInfo.eolien.result.cost - userInfo.eolien.amount * 10000 }}
+              €</b
+            >
+          </h3>
+          <h3>
+            Coût d'installation : <b>{{ userInfo.eolien.amount * 10000 }} €</b>
+          </h3>
           <div class="break" />
           <h3>
             Coût total : <b> {{ userInfo.eolien.result.cost }} €</b>
@@ -222,13 +241,6 @@
           <h3>
             Amortissement finançier après <b> {{ rentable }} ans</b>
           </h3>
-
-          <div
-            class="flex flex-col justify-center items-center bg-white p-5 mt-5 rounded-xl text-black"
-          >
-            TODO
-            <energetic-label class="" :elecConsumption="200" :homeArea="100" />
-          </div>
         </bilan-panel>
       </div>
     </div>
