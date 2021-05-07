@@ -22,7 +22,7 @@ html {
 
   --bg: #edf0f5;
   --bg-card: #ffffff;
-  --bg-sec: #f4f6f8;
+  --bg-sec: #f0f2f5;
   --bg-grey: #dddddd;
   --blue: #0459fd;
   --red: #ff374c;
