@@ -169,18 +169,20 @@
               >
             </b>
           </h2>
-
-          <h2>
-            Part d'autoconsomation : <b>{{ autoconsommation }} % </b>
-          </h2>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            v-model="autoconsommation"
-            @input="changeAutoConso"
-          />
+          <div class="max-w-xs">
+            <h2>
+              Part d'autoconsomation : <b>{{ autoconsommation }} % </b>
+            </h2>
+            <input
+              class="w-full"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              v-model="autoconsommation"
+              @input="changeAutoConso"
+            />
+          </div>
 
           <single-button
             text="Changer le type d'éolienne"
