@@ -56,7 +56,6 @@ p {
 }
 </style>
 <script>
-import SingleButton from '../Inputs/SingleButton.vue'
 export default {
   name: 'userInfoBox',
   props: ['userInfo'],
