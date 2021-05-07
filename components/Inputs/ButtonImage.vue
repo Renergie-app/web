@@ -32,6 +32,17 @@ img,
   stroke: var(--text-sec);
   transition: all 0.1s;
 }
+
+.disabled:hover img,
+.disabled:hover .svgContainer,
+.disabled:focus img,
+.disabled:focus .svgContainer {
+  fill: white;
+  stroke: white;
+  background-color: rgb(150, 143, 143);
+  box-shadow: 0px 10px 60px -10px grey;
+}
+
 button:hover img,
 button:hover .svgContainer,
 button:focus img,
