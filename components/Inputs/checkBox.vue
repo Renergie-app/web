@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row justify-center m-2">
-    <input class="h-6 w-6 mr-3" type="checkbox" v-model="value" />
+  <div class="flex flex-row justify-center m-1">
+    <input class="h-5 w-5 mr-2" type="checkbox" v-model="value" />
     <label :class="value ? 'checked' : ''"> {{ text }}</label>
   </div>
 </template>
