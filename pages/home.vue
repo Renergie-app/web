@@ -4,6 +4,7 @@
     <div class="infoContainer flex-row flex justify-center items-center">
       <user-info-box :user-info="userInfo">
         <energetic-label
+          class="mt-5"
           v-if="userInfo != null"
           :home-area="userInfo.homeArea.value"
           :elecConsumption="userInfo.elecConsumptionTotal.value"
@@ -12,8 +13,10 @@
       <info-box>
         Cette application s'appuie sur des données prévisionnelles et des
         données statistiques pour prévoir vos coûts. Il est donc possible que
-        <b> d'un particulier à l'autre, les différences entre la réalité et les prévisions soit
-          plus grande</b>. Cette application n'a pas pour but de remplacer un quelconque devis
+        <b>
+          d'un particulier à l'autre, les différences entre la réalité et les
+          prévisions soit plus grande</b
+        >. Cette application n'a pas pour but de remplacer un quelconque devis
         fait par un professionnel, elle a pour seul intérêt de donner un ordre
         d'idées de vos investissements et de leur rentabilité.
       </info-box>

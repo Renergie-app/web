@@ -1,5 +1,9 @@
 <template>
-  <div class="w-60 mt-5">
+  <div class="w-60">
+    <h1 class="tip mb-2">
+      <p class="font-semibold text-xl text-center">Étiquette énergétique</p>
+      <span class="tip-text"> Le label énergétique sert à ... TODO </span>
+    </h1>
     <energetic-bar
       :label="'A'"
       :current="value <= 50"
