@@ -148,6 +148,12 @@
         <h3>
           Aménagement rentable à partir de : <b>{{ rentable }} ans </b>
         </h3>
+        <div
+          class="flex flex-col justify-center items-center bg-white p-5 mt-5 rounded-xl text-black"
+        >
+          TODO
+          <energetic-label class="" :elecConsumption="200" :homeArea="100" />
+        </div>
       </bilan-panel>
     </div>
   </page-container>

@@ -220,6 +220,13 @@
           <h3>
             Amortissement finançier après <b> {{ rentable }} ans</b>
           </h3>
+
+          <div
+            class="flex flex-col justify-center items-center bg-white p-5 mt-5 rounded-xl text-black"
+          >
+            TODO
+            <energetic-label class="" :elecConsumption="200" :homeArea="100" />
+          </div>
         </bilan-panel>
       </div>
     </div>
@@ -253,9 +260,10 @@ import infoBox from '../components/home/infoBox.vue'
 import BilanPanel from '../components/bilanPanel.vue'
 import Logo from '../components/Logo.vue'
 import WindPanelRequest from '../graphQL/windturbine.graphql'
+import EnergeticLabel from '../components/home/energeticLabel.vue'
 
 export default {
-  components: { infoBox, BilanPanel, Logo },
+  components: { infoBox, BilanPanel, Logo, EnergeticLabel },
   name: 'eolien',
 
   computed: {
