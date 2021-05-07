@@ -135,75 +135,110 @@
           />
         </svg>
       </single-button>
-      <bilan-panel class="m-10">
-        <h2>
-          Type : <b>{{ userInfo.eolien.type }}</b>
-        </h2>
-        <h2 class="select-none">
-          Nombre :
-          <b>
-            <span
-              class="bg-white p-1 text-black font-mono opacity-25 rounded-2xl"
-              @click="reduceAmount"
-              >-</span
-            >
-            {{ userInfo.eolien.amount }}
-            <span
-              class="bg-white p-1 text-black font-mono opacity-25 rounded-2xl"
-              @click="addAmount"
-              >+</span
-            >
-          </b>
-        </h2>
+      <div class="card-container flex flex-row items-start mb-10">
+        <div
+          class="card m-10 flex flex-col items-center p-5 rounded-3xl bg-white shadow-2xl font-light"
+        >
+          <h1>
+            <p>Ajouts d'éoliennes domestiques</p>
+          </h1>
+          <h2>
+            Type : <b>{{ userInfo.eolien.type }}</b>
+          </h2>
 
-        <h2>
-          Part d'autoconsomation : <b>{{ autoconsommation }} % </b>
-        </h2>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="50"
-          class="ml-10"
-          v-model="autoconsommation"
-          @input="changeAutoConso"
-        />
+          <h2 class="select-none">
+            Nombre :
+            <b>
+              <span
+                class="p-2 text-black font-mono opacity-25 rounded-2xl"
+                @click="reduceAmount"
+                >-</span
+              >
+              {{ userInfo.eolien.amount }}
+              <span
+                class="p-2 text-black font-mono opacity-25 rounded-2xl"
+                @click="addAmount"
+                >+</span
+              >
+            </b>
+          </h2>
 
-        <h1>Bilan énergétique</h1>
-        <h3>
-          Production électrique :
-          <b>{{ userInfo.eolien.result.powerOutputKWH }} kWh / an</b>
-        </h3>
+          <h2>
+            Part d'autoconsomation : <b>{{ autoconsommation }} % </b>
+          </h2>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            v-model="autoconsommation"
+            @input="changeAutoConso"
+          />
 
-        <h1>Bilan financier</h1>
-        <h3>
-          Cout total : <b> {{ userInfo.eolien.result.cost }} €</b>
-        </h3>
+          <single-button
+            text="Changer le type d'éolienne"
+            @clicked="reset"
+            class="m-5"
+          >
+          </single-button>
+        </div>
+        <bilan-panel class="m-10">
+          <h1>Bilan énergétique</h1>
+          <h3>
+            Production électrique :
+            <b>{{ userInfo.eolien.result.powerOutputKWH }} kWh / an</b>
+          </h3>
 
-        <h1>Rentabilité</h1>
-        <h3>
-          Revenu Annuel Estimé : <b> {{ getGainAll }} € </b>
-        </h3>
-        <h3>
-          Economie Annuelle sur la facture : <b> {{ getEconomieFacture }} €</b>
-        </h3>
-        <div class="break" />
-        <h3>
-          Profit Total Annuel : <b> {{ getProfit }} €</b>
-        </h3>
-        <h3>
-          Amortissement finançier après <b> {{ rentable }} ans</b>
-        </h3>
-      </bilan-panel>
-      <single-button
-        text="Changer mes informations"
-        @clicked="reset"
-        class="mb-24"
-      >
-      </single-button>
+          <h1>Bilan financier</h1>
+
+          <h3>Coût du materiel : ??? TODO</h3>
+          <h3>Coût d'installation : ??? TODO</h3>
+          <div class="break" />
+          <h3>
+            Coût total : <b> {{ userInfo.eolien.result.cost }} €</b>
+          </h3>
+
+          <h1>Rentabilité</h1>
+          <h3>
+            Revenu Annuel Estimé : <b> {{ getGainAll }} € </b>
+          </h3>
+          <h3>
+            Economie Annuelle sur la facture :
+            <b> {{ getEconomieFacture }} €</b>
+          </h3>
+          <div class="break" />
+          <h3>
+            Profit Total Annuel : <b> {{ getProfit }} €</b>
+          </h3>
+          <h3>
+            Amortissement finançier après <b> {{ rentable }} ans</b>
+          </h3>
+        </bilan-panel>
+      </div>
     </div>
   </page-container>
 </template>
+
+<style scoped>
+h1 {
+  font-weight: 700;
+  font-size: 1.875rem /* 30px */;
+  line-height: 2.25rem /* 36px */;
+  margin-bottom: 0.5rem /* 8px */;
+}
+
+b {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media (max-width: 960px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
 
 <script>
 import questions from 'assets/eolienQuestions.json'
@@ -348,6 +383,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>
