@@ -8,13 +8,24 @@
         />
       </svg>
     </single-button>
-    <div class="card-container flex flex-row mb-10">
-      <div class="m-10 flex flex-col p-5 rounded-3xl bg-white shadow-2x">
-        <h1>Ajouts de panneaux photovoltaïques :</h1>
-        <div class="flex flex-row">
-          <div>
-            <h2>Projet de production éléctrique :</h2>
-            <div class="flex flex-col items-start ml-6">
+    <div class="card-container flex flex-row items-start mb-10">
+      <div
+        class="m-10 flex flex-col items-center p-5 rounded-3xl bg-white shadow-2x"
+      >
+        <h1 class="pl-2 pr-2 self-start">
+          <p>Ajouts de panneaux</p>
+          <p>photovoltaïques</p>
+        </h1>
+        <div class="flex flex-row justify-evenly font-light">
+          <div class="max-w-xs mr-6">
+            <h2 class="tip">
+              Projet de production éléctrique :
+              <span class="tip-text">
+                <p>Il est possible de ...</p>
+                <p>TODO</p>
+              </span>
+            </h2>
+            <div class="flex flex-col items-start">
               <check-box
                 text="Vente totale"
                 :bus="bus"
@@ -23,37 +34,32 @@
               >
               </check-box>
               <check-box
-                text="AutoConsommation et vente surplus"
+                text="Autoconsommation"
                 :bus="bus"
                 id="1"
                 @change="changeAutoC"
               >
               </check-box>
-              <p>Part d'autoconsomation : {{ autoconsommation }} %</p>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="50"
-                class="ml-10"
-                :disabled="userInfo.solarModule.sellAll"
-                v-model="autoconsommation"
-                @input="changeAutoConso"
-              />
             </div>
           </div>
-          <div>
-            <h2>Mode de pose :</h2>
-            <div class="flex flex-col items-start ml-6">
+          <div class="max-w-xs">
+            <h2 class="tip">
+              Mode de pose :
+              <span class="tip-text">
+                <p>Intégration : remplace la toiture</p>
+                <p>Surimposition : par dessus la toiture</p>
+              </span>
+            </h2>
+            <div class="flex flex-col items-start">
               <check-box
-                text="Intégration (Remplace la toiture)"
+                text="Intégration"
                 :bus="bus"
                 id="2"
                 @change="changeIntegration"
               >
               </check-box>
               <check-box
-                text="Surimposition (Par dessus la toiture)"
+                text="Surimposition"
                 :bus="bus"
                 id="3"
                 @change="changeSurimposition"
@@ -61,6 +67,24 @@
               </check-box>
             </div>
           </div>
+        </div>
+        <div
+          v-if="!this.userInfo.solarModule.sellAll"
+          class="max-w-xs pt-4 font-thin"
+        >
+          <p>
+            Part d'autoconsomation : <b>{{ autoconsommation }} %</b>
+          </p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="w-full"
+            :disabled="userInfo.solarModule.sellAll"
+            v-model="autoconsommation"
+            @input="changeAutoConso"
+          />
         </div>
         <div v-if="userInfo != null">
           <face-selector
@@ -111,18 +135,18 @@
 
         <h1>Rentabilité</h1>
         <h3>
-          Revenu Annuel Estimé : <b>{{ getGainAll }} € / an </b>
+          Revenu annuel estimé : <b>{{ getGainAll }} € / an </b>
         </h3>
         <h3>
-          Economie Annuelle sur la facture :
+          Economie annuelle sur la facture :
           <b>{{ getEconomieFacture }} € / an </b>
         </h3>
         <div class="break" />
         <h3>
-          Profit Totale : <b>{{ getProfit }} € / an </b>
+          Profit totale : <b>{{ getProfit }} € / an </b>
         </h3>
         <h3>
-          Aménagement rentable au bout de : <b>{{ rentable }} ans </b>
+          Aménagement rentable à partir de : <b>{{ rentable }} ans </b>
         </h3>
       </bilan-panel>
     </div>
@@ -136,9 +160,15 @@ h1 {
   margin-bottom: 0.5rem /* 8px */;
 }
 
+b {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
 @media (max-width: 960px) {
   .card-container {
     flex-direction: column;
+    align-items: center;
   }
 }
 </style>
