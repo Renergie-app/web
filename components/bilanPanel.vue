@@ -6,8 +6,24 @@
 
 <style scoped>
 .outer {
-  background-color: var(--blue);
+  /* background-color: var(--blue); */
   color: white;
+  background: linear-gradient(228deg, #3f95ca, #4174fa, #2968e6, #5d9ac0);
+  background-size: 800% 800%;
+
+  animation: slide 10s ease infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0% 90%;
+  }
+  50% {
+    background-position: 100% 11%;
+  }
+  100% {
+    background-position: 0% 90%;
+  }
 }
 h3 {
   margin-left: 2rem;
