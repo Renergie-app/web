@@ -5,43 +5,96 @@
       :current="value <= 50"
       :percent="25"
       :color="'#9AE077'"
-    />
+    >
+      <p>
+        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
+        pallier. (TODO)
+      </p>
+      <p v-if="value > 50" class="mt-6">
+        Il vous faut {{ this.elecConsumption }} kWh en moins.
+      </p>
+    </energetic-bar>
     <energetic-bar
       :label="'B'"
       :current="value > 50 && value <= 90"
       :percent="37.5"
       :color="'#B6E075'"
-    />
+    >
+      <p>
+        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
+        pallier. (TODO)
+      </p>
+      <p v-if="value > 90" class="mt-6">
+        Il vous faut {{ this.elecConsumption }} kWh en moins.
+      </p>
+    </energetic-bar>
     <energetic-bar
       :label="'C'"
       :current="value > 90 && value <= 150"
       :percent="50"
       :color="'#E0DE7B'"
-    />
+    >
+      <p>
+        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
+        pallier. (TODO)
+      </p>
+      <p v-if="value > 150" class="mt-6">
+        Il vous faut {{ this.elecConsumption }} kWh en moins.
+      </p>
+    </energetic-bar>
     <energetic-bar
       :label="'D'"
       :current="value > 150 && value <= 230"
       :percent="62.5"
       :color="'#E0D07C'"
-    />
+    >
+      <p>
+        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
+        pallier. (TODO)
+      </p>
+      <p v-if="value > 230" class="mt-6">
+        Il vous faut {{ this.elecConsumption }} kWh en moins.
+      </p>
+    </energetic-bar>
     <energetic-bar
       :label="'E'"
       :current="value > 230 && value <= 330"
       :percent="75"
       :color="'#E0BC79'"
-    />
+    >
+      <p>
+        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
+        pallier. (TODO)
+      </p>
+      <p v-if="value > 330" class="mt-6">
+        Il vous faut {{ this.elecConsumption }} kWh en moins.
+      </p>
+    </energetic-bar>
     <energetic-bar
       :label="'F'"
       :current="value > 330 && value <= 450"
       :percent="87.5"
       :color="'#E0A374'"
-    />
+    >
+      <p>
+        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
+        pallier. (TODO)
+      </p>
+      <p v-if="value > 450" class="mt-6">
+        Il vous faut {{ this.elecConsumption }} kWh en moins.
+      </p>
+    </energetic-bar>
     <energetic-bar
       :label="'G'"
       :current="value > 450"
       :percent="100"
       :color="'#E08363'"
-    />
+    >
+      <p>
+        Il faut une consomation éléctrique inférieur à ??? pour atteindre ce
+        pallier. (TODO)
+      </p>
+    </energetic-bar>
     <div class="flex flex-row items-center">
       <svg
         class="h-16 mr-3 opacity-30"
@@ -53,7 +106,8 @@
         />
       </svg>
       <p class="note text-sm mt-3 opacity-60">
-        Votre étiquette est calculée à partir de votre consommation électrique en fonction de la surface habitable.
+        Votre étiquette est calculée à partir de votre consommation électrique
+        en fonction de la surface habitable.
       </p>
     </div>
   </div>
@@ -72,7 +126,7 @@ export default {
 
   computed: {
     value() {
-      return (this.elecConsumption) / this.homeArea
+      return this.elecConsumption / this.homeArea
     },
   },
 
