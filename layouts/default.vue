@@ -49,26 +49,28 @@ html,
 .tip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.25); /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
 .tip .tip-text {
   visibility: hidden;
-  width: 120px;
+  width: 220px;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   text-align: center;
-  padding: 5px 0;
+  line-height: 1.3rem;
+  padding: 5px 4px;
   border-radius: 6px;
 
   bottom: 100%;
   left: 50%;
-  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  margin-left: -110px; /* Use half of the width (120/2 = 60), to center the tooltip */
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
-  z-index: 1;
+  z-index: 20;
+  pointer-events: none;
 }
 
 .tip .tip-text::after {
