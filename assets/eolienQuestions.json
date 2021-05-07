@@ -18,10 +18,10 @@
     "numero" :2,
     "choices": [
       {
-        "text": "Eolienne Horizontale"
+        "text": "Éolienne Horizontale"
       },
       {
-        "text": "Eolienne Verticale"
+        "text": "Éolienne Verticale"
       }
     ]
   }
