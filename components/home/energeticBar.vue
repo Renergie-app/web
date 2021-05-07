@@ -2,6 +2,7 @@
   <div class="flex flex-row items-center">
     <dir
       class="h-8 bar p-0 mt-1 mb-1 pt-1 flex items-center justify-start tip"
+      style="border: none"
       :style="barStyle"
     >
       <span class="tip-text">
