@@ -46,6 +46,7 @@
         >
         </input-text>
         <single-button
+          class="mr-5"
           @clicked="submitNextQuestion"
           :enable="questionListValid[indexQuestion]"
         >
