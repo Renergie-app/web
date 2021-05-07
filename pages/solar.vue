@@ -10,7 +10,7 @@
     </single-button>
     <div class="card-container flex flex-row items-start mb-10">
       <div
-        class="m-10 flex flex-col items-center p-5 rounded-3xl bg-white shadow-2x"
+        class="m-10 flex flex-col items-center p-5 rounded-3xl bg-white shadow-2xl"
       >
         <h1 class="pl-2 pr-2 self-start">
           <p>Ajouts de panneaux</p>
