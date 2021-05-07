@@ -157,13 +157,13 @@
             Nombre :
             <b>
               <span
-                class="p-2 text-black font-mono opacity-25 rounded-2xl"
+                class="p-2 text-black font-mono opacity-25 rounded-2xl cursor-pointer"
                 @click="reduceAmount"
                 >-</span
               >
               {{ userInfo.eolien.amount }}
               <span
-                class="p-2 text-black font-mono opacity-25 rounded-2xl"
+                class="p-2 text-black font-mono opacity-25 rounded-2xl cursor-pointer"
                 @click="addAmount"
                 >+</span
               >
