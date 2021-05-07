@@ -8,7 +8,6 @@
 .outer {
   background-color: var(--blue);
   color: white;
-  /* align-self: flex-start; */
 }
 h3 {
   margin-left: 2rem;
