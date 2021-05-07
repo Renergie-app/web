@@ -1,9 +1,10 @@
 <template>
-  <div class="mt-3 flex flex-col p-5 rounded-3xl bg-white shadow-2xl">
-    <h1 class="text-2xl text-center font-medium">
+  <div class="mt-3 flex flex-col justify-center items-center">
+    <div class="separator w-full"></div>
+    <h1 class="text-2xl text-center font-semibold">
       Façade {{ face.orientation }}
     </h1>
-    <div class="flex flex-row max-w-lg mb-1">
+    <div class="flex max-w-xs flex-row mb-1">
       <input-text
         title="Surface"
         :bus="bus"
@@ -22,25 +23,44 @@
       >
       </input-text>
     </div>
-    <div class="font-normal">
+    <div class="font-light">
+      <p class="tip">
+        Nombre de panneaux : <b>{{ face.nb }}</b>
+        <span class="tip-text"
+          >Un panneau couvre environ 2 m². Cette valeur peut varier en fonction
+          des fournisseurs.</span
+        >
+      </p>
       <p>
-        Production éléctrique : <span>{{ face.prod }} kWh </span>
+        Production éléctrique : <b>{{ face.prod }} kWh </b>
       </p>
       <!--<p>
-      Gain en argent : <span>{{ face.gain }} € / an</span>
+      Gain en argent : <b>{{ face.gain }} € / an</b>
     </p>-->
       <p>
-        Coût : <span>{{ face.price }} €</span>
-      </p>
-      <p>
-        Nombre de panneaux : <span>{{ face.nb }}</span>
+        Coût : <b>{{ face.price }} €</b>
       </p>
     </div>
   </div>
 </template>
 
 <style scoped>
-span {
+.separator {
+  opacity: 30%;
+  height: 2px;
+  margin-bottom: 10px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(0, 0, 0, 0.5023053166579132) 25%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.49950419620973385) 75%,
+    rgba(0, 212, 255, 0) 100%
+  );
+}
+b {
+  color: var(--red);
   font-weight: 700;
   font-size: 1rem;
 }
