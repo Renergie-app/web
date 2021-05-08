@@ -1,6 +1,6 @@
 <template>
   <div class="flex-col outer m-5 mt-10 mb-20 max-w-lg shadow-2xl">
-    <div class="question text-xl font-bold m-7 mb-0">
+    <div class="question text-xl font-bold m-7 mb-0 text-center">
       {{ question }}
     </div>
     <div class="flex justify-center">
