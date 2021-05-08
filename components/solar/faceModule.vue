@@ -28,7 +28,7 @@
         <p class="tip">
           Nombre de panneaux : <b>{{ face.nb }}</b>
           <span class="tip-text"
-            >Un panneau couvre environ 2 m². Cette valeur peut varier en
+            >Un panneau couvre environ 1,7 m². Cette valeur peut varier en
             fonction des fournisseurs.</span
           >
         </p>
