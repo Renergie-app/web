@@ -11,14 +11,11 @@
         ></energetic-label>
       </user-info-box>
       <info-box>
-        Cette application s'appuie sur des données prévisionnelles et des
-        données statistiques pour prévoir vos coûts. Il est donc possible que
+        Cette application s'appuie sur des données prévisionnelles et des données statistiques pour prévoir vos coûts. Il est donc possible que
         <b>
-          d'un particulier à l'autre, les différences entre la réalité et les
-          prévisions soit plus grande</b
-        >. Cette application n'a pas pour but de remplacer un quelconque devis
-        fait par un professionnel, elle a pour seul intérêt de donner un ordre
-        d'idées de vos investissements et de leur rentabilité.
+          d'un particulier à l'autre, les différences entre la réalité et les prévisions soient plus grandes. </b>. 
+          Cette application n'a pas pour but de remplacer un quelconque devis fait par un professionnel, 
+          elle a pour seul intérêt de donner un ordre d'idée de vos investissements et de leur rentabilité.
       </info-box>
     </div>
     <h1 class="text-3xl font-light opacity-80 m-4 text-center">
