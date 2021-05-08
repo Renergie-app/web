@@ -6,8 +6,8 @@
     >
       <logo />
       <info-box>
-        Votre logement ne remplis pas les conditions pour nécessaires pour la
-        pose d'éoliennes. Il n'existe aucune installation d'éolienne pour les
+        Votre logement ne remplit pas les conditions pour nécessaires pour la
+        pose d'éoliennes. Il n'existe aucune installation d'éoliennes pour les
         appartements.
       </info-box>
       <single-button @clicked="returnpage">
@@ -32,20 +32,16 @@
       </single-button>
       <info-box>
         <p>
-          Avant de commencer la simulation pour poser des éoliennes, vous devez
-          savoir quelques informations :
+          Avant de commencer la simulation pour poser des éoliennes, vous devez savoir quelques informations :
         </p>
         <p>
-          • Il est impératif qu'il y ait suffisament de vents où se trouve votre
-          logement pour le bon fonctionnement de l'éolienne.
+          • Il est impératif qu'il y ait suffisamment de vents où se trouve votre logement pour le bon fonctionnement de l'éolienne.
         </p>
         <p>
-          • Veiller à qu'il n'y ait pas d'obstacles autour du logement qui
-          pourrait couper le vent.
+          • Veillez à qu'il n'y ait pas d'obstacles autour du logement qui puisse couper le vent.
         </p>
         <p>
-          • L'éolien est un aménagement coûteux. Compter au minimum pour 15 000
-          €.
+          • L'éolien est un aménagement coûteux. Compter au minimum pour 15 000 €.
         </p>
       </info-box>
       <single-button text="Continuer" @clicked="passeInfo"> </single-button>
